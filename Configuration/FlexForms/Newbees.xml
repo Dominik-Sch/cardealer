@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>Optionen</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <!-- start settings -->
+                    <settings.limit>
+                        <TCEforms>
+                            <label>max. Fahrzeuge</label>
+                            <description>Anzahl der Fahrzeuge die maximal im Slider angezeigt werden sollen.</description>
+                            <config>
+                                <type>input</type>
+                                <size>1</size>
+                                <default>12</default>
+                            </config>
+                        </TCEforms>
+                    </settings.limit>
+                    <settings.time_ago>
+                        <TCEforms>
+                            <label>Alter der Fahrzeuge</label>
+                            <description>Geben Sie hier die Zeitspanne in Tagen an, welche seit dem Einstellungsdatum vergangen sein sollen.</description>
+                            <config>
+                                <type>input</type>
+                                <size>1</size>
+                                <default>3</default>
+                            </config>
+                        </TCEforms>
+                    </settings.time_ago>
+                    <!-- end of settings -->
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

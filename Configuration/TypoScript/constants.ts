@@ -1,0 +1,55 @@
+
+plugin.tx_cardealer_pi1 {
+    view {
+        # cat=plugin.tx_cardealer_pi1/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:cardealer/Resources/Private/Templates/
+
+        # cat=plugin.tx_cardealer_pi1/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:cardealer/Resources/Private/Partials/
+
+        # cat=plugin.tx_cardealer_pi1/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:cardealer/Resources/Private/Layouts/
+    }
+    persistence {
+        # cat=plugin.tx_cardealer_pi1//a; type=string; label=Default storage PID
+        storagePid =
+    }
+
+    settings {
+        pid {
+            # cat=plugin.tx_cardealer_pi1/links/b; type=string; label=PID Liste
+            list = 0
+            # cat=plugin.tx_cardealer_pi1/links/b; type=string; label=PID Details
+            details = 0
+        }
+        uid {
+            # cat=plugin.tx_cardealer_pi1/links/b; type=string; label=UID Anfrage Formular
+            request_form= 0
+            # cat=plugin.tx_cardealer_pi1/links/b; type=string; label=UID Weiterempfehlen Formular
+            tipafriend_form = 0
+        }
+        # cat=plugin.tx_cardealer_pi1/enable/a; type=string; label=Erstzulassung: Werte für die Suche
+        firstRegistrations = 2017,2016,2015,2014,2013,2012,2011,2010,2009,2008,2007,2006,2005
+        # cat=plugin.tx_cardealer_pi1/enable/b; type=string; label=Preise: Werte für die Suche
+        prices = 5000,7500,10000,12500,15000,20000,25000,50000
+        # cat=plugin.tx_cardealer_pi1/enable/c; type=string; label=Kilometer: Werte für die Suche
+        mileages = 3000,4000,5000,6000,7000,8000,9000,10000,15000,20000,25000,30000,35000,40000,45000,50000,55000,60000,65000,70000,80000,90000,100000,150000,200000
+        # cat=plugin.tx_cardealer_pi1/enable/e; type=string; label=Replace:Dieser Text wird in der Beschreibung gesucht und durch der Wert von replaceBy ersetzt
+        replace =
+        # cat=plugin.tx_cardealer_pi1/enable/f; type=string; label=ReplaceBy:Durch diesen Text wird der Wert von replace ersetzt
+        replaceBy =
+
+        # cat=plugin.tx_cardealer_pi1/enable/g; type=boolean; label=Ajax detail view: Details in overlay via Ajax laden
+        ajax_detail_view = 1
+
+        # cat=plugin.tx_cardealer_pi1/enable/h; type=boolean; label=Include Slick: Slick Slider Resources laden.
+        include_slick = 1
+        # cat=plugin.tx_cardealer_pi1/enable/i; type=boolean; label=Include Flexslider: Flexslider Slider Resources laden.
+        include_flexslider = 1
+
+        # cat=plugin.tx_cardealer_pi1/color/a; type=colors; label=Icons color:
+        icons_color = #0288D1
+
+    }
+
+}

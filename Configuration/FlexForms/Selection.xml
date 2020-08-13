@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>Optionen</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <!-- start settings -->
+                    <settings.uids>
+                        <TCEforms>
+                            <exclude>1</exclude>
+                            <label>Fahrzeuge auswählen</label>
+                            <config>
+                                <type>group</type>
+                                <internal_type>db</internal_type>
+                                <allowed>tx_cardealer_domain_model_car</allowed>
+                                <size>10</size>
+                                <maxitems>99</maxitems>
+                                <minitems>0</minitems>
+                            </config>
+                        </TCEforms>
+                    </settings.uids>
+                    <!-- end of settings -->
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>
