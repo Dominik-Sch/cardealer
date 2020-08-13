@@ -7,12 +7,9 @@ Cardealer - mobile.de API
 
 Demo
 ~~~~~~~
-`Open the demo`__
 
-__ https://p487707.mittwaldserver.info/v9/public/
+|Demo|.
 
-You can |location_link|.
+.. |Demo| raw:: html
 
-.. |location_link| raw:: html
-
-   <a href="http://geoiptool.com" target="_blank">check your location here</a>
+   <a href="https://p487707.mittwaldserver.info/v9/public/" target="_blank">Cardealer</a>
