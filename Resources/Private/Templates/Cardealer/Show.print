@@ -1,0 +1,161 @@
+{namespace custom=EXOTEC\Cardealer\ViewHelpers}
+
+<f:layout name="Default" />
+
+<f:section name="content">
+
+<table width="100%" style="max-width:700px;" cellpadding="3" cellspacing="0" border="0">
+		<tr>
+			<td colspan="3" valign="top">
+  			<h1 class="model_description">{car.make.0.title} {car.modelDescription}</h1>
+  			<hr />
+  		</td>
+		</tr>
+
+		<tr>
+			<td width="220" valign="top">
+                <f:for each="{car.images}" as="image" iteration="_iter">
+                    <f:if condition="{_iter.isFirst}">
+                        <f:image src="{image.uid}" treatIdAsReference="1" maxWidth="210"/>
+                    </f:if>
+                </f:for>
+			</td>
+			<td valign="top">
+  			<strong>{car.category.0.title}</strong><br />
+  			<strong>{car.carCondition.0.title}</strong><br />
+  			{car.location}<br />
+  			{car.countyVersion.title}<br />
+
+  			<f:format.raw>{DELIVERY_DATE}</f:format.raw>
+  			EZ: <f:format.date format="m/Y">{car.firstRegistration}</f:format.date><br />
+  			{car.mileage} km<br />
+  			{car.fuel.0.title}<br />
+  			{car.power} kW (<f:format.number decimals="0" decimalSeparator="." thousandsSeparator=","><f:cObject typoscriptObjectPath="plugin.tx_cardealer_pi1.lib.math" data="{car.power} / 0.735"></f:cObject></f:format.number> PS)<br />
+  			{car.gearbox.0.title}<br />
+  			{car.accidentDamaged}
+			</td>
+			<td valign="top" class="align-right">
+
+  			<f:if condition="{settings.showOpelCertImage} == 1">
+  				<custom:certimage addCondition="{car.addCondition.title}" addMileage="{car.mileage}" addFirstRegistration="{car.firstRegistration}" />
+  			</f:if>
+  		</div>
+  		<div class="col-sm-4">
+  			<h2 class="price">€ <f:format.number decimals="0" decimalSeparator="," thousandsSeparator=".">{car.price}</f:format.number> {BRUTTO_OR_NETTO}</h2>
+  			<strong>
+  				<f:format.raw>
+  					{PRICE_NETTO}
+  				</f:format.raw><br>
+  				<em class="text-muted">{VAT_RATE}</em>
+  			</strong>
+  			<div class="contentbyid">
+  				<f:format.raw>
+
+  				</f:format.raw>
+  			</div>
+			</td>
+		</tr>
+
+		<tr>
+  		<td valign="top" colspan="3">
+    		<hr />
+        <h3>Weitere technische Daten</h3>
+  		</td>
+		</tr>
+
+		<tr>
+  		<td colspan="3">
+    		<table width="700" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td valign="top">
+              <f:format.raw><custom:getspecifics addUid="{car.uid}" /></f:format.raw>
+            </td>
+            <td valign="top">
+              <f:format.raw><custom:getconsumptions addUid="{car.uid}" /></f:format.raw>
+            </td>
+            <td width="100" valign="top">
+
+            </td>
+          </tr>
+    		</table>
+  		</td>
+		</tr>
+
+		<tr>
+  		<td colspan="3">
+    		 <small class="text-muted">Weitere Informationen zum offiziellen Kraftstoffverbrauch und den offiziellen spezifischen CO2-Emissionen neuer Personenkraftwagen können dem <b>"Leitfaden über den Kraftstoffverbrauch, die CO2-Emissionen und den Stromverbrauch neuer Personenkraftwagen"</b> entnommen werden, der an allen Verkaufsstellen und bei der Deutschen Automobil Treuhand GmbH (DAT) unentgeltlich erhältlich ist. Die angegebenen Werte wurden nach dem vorgeschriebenen Messverfahren (§ 2 Nrn. 5, 6, 6a Pkw-EnVKV in der jeweils geltenden Fassung) ermittelt. Die Angaben beziehen sich nicht auf ein einzelnes Fahrzeug und sind nicht Bestandteil des Angebots, sondern dienen allein Vergleichszwecken zwischen den verschiedenen Fahrzeugtypen.</small>
+  		</td>
+		</tr>
+
+		<tr>
+  		<td valign="top" colspan="3">
+        <h3>Ausstattung</h3>
+  		</td>
+		</tr>
+
+		<tr>
+  		<td colspan="3">
+    		<table width="700" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td width="25%" valign="top">
+        			<strong>Innenausstattung</strong>
+        			<ul>
+        				<f:format.raw><custom:getinteriordata addUid="{car.uid}" /></f:format.raw>
+        			</ul>
+            </td>
+            <td width="25%" valign="top">
+        			<strong>Außenausstattung</strong>
+        			<ul>
+        				<f:format.raw><custom:getexteriordata addUid="{car.uid}" /></f:format.raw>
+        			</ul>
+            </td>
+            <td width="25%" valign="top">
+        			<strong>Extras</strong>
+        			<ul>
+        				<f:format.raw><custom:getextradata addUid="{car.uid}" /></f:format.raw>
+        			</ul>
+            </td>
+            <td width="25%" valign="top">
+        			<strong>Sicherheit und Umwelt</strong>
+        			<ul>
+        				<f:format.raw><custom:getsecurityenvironment addUid="{car.uid}" /></f:format.raw>
+        			</ul>
+            </td>
+          </tr>
+    		</table>
+  		</td>
+		</tr>
+
+		<tr>
+  		<td valign="top" colspan="3">
+        <h3 id="descriptionHeader">Fahrzeugbeschreibung</h3>
+  		</td>
+		</tr>
+
+		<tr>
+  		<td valign="top" colspan="3">
+        <ul style="margin: 0 20px;list-style-type: inherit;">
+          <f:format.raw><custom:description value="{car.description}" /></f:format.raw>
+        </ul>
+  		</td>
+		</tr>
+
+
+		<tr>
+  		<td valign="top" colspan="3">
+    		<hr />
+        <b>{car.companyName}</b><br />
+        {car.address}<br />
+        {car.zip} {car.city}
+  		</td>
+		</tr>
+		
+</table>
+
+
+
+<script>
+  window.onload = function() { window.print(); }
+</script>
+
+</f:section>

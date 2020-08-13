@@ -1,0 +1,29 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<div class="sorting_field formField">
+    <div class="input-group">
+        <select class="form-control input-sm sorting ajax-filter" name="tx_cardealer_pi1[sortBy]">
+            <option value="price" {f:if(condition: '{args.sortBy} == "price"', then: 'selected="selected"')}>sortiere nach Preis</option>
+            <option value="mileage" {f:if(condition: '{args.sortBy} == "mileage"', then: 'selected="selected"')}>sortiere nach Kilometer</option>
+            <option value="first_registration" {f:if(condition: '{args.sortBy} == "first_registration"', then: 'selected="selected"')}>sortiere nach Erstzulassung</option>
+        </select>
+        <span class="input-group-addon">
+            <label class="glyphicon glyphicon-chevron-up {f:if(condition: '{args.sortOrder.0} == \'ASC\' || !{args.sortOrder.0}', then: 'act')}">
+                <f:render arguments="{width: '24', height: '24', color: 'black'}"
+                          partial="Svg/ChevronUp"/>
+                <input class="sorting radio ajax-filter" name="tx_cardealer_pi1[sortOrder][]" value="ASC" type="radio" title="{f:translate(key: 'tx_cardealer_pi1_label.DESC.title')} sortieren"
+                       {f:if(condition: '{args.sortOrder.0} == "ASC" || !{args.sortOrder.0}', then: 'checked="checked"')}>
+            </label>
+        </span>
+        <span class="input-group-addon">
+            <label class="glyphicon glyphicon-chevron-down {f:if(condition: '{args.sortOrder.0} == \'DESC\' || !{args.sortOrder.0}', then: 'act')}">
+                <f:render arguments="{width: '24', height: '24', color: 'black'}"
+                          partial="Svg/ChevronDown"/>
+                <input class="sorting radio ajax-filter" name="tx_cardealer_pi1[sortOrder][]" value="DESC" type="radio" title="{f:translate(key: 'tx_cardealer_pi1_label.ASC.title')} sortieren"
+                       {f:if(condition: '{args.sortOrder.0} == "DESC"', then: 'checked="checked"')}>
+            </label>
+        </span>
+    </div>
+</div>
+
+</html>

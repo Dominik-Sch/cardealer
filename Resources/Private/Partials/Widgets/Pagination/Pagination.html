@@ -1,0 +1,41 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:if condition="{paginator.numPages} > 1">
+    <ul class="paginator">
+        <f:if condition="{paginator.prevUrl}">
+            <li>
+                <f:link.action class="prev-page paging history" controller="Standard" action="list" arguments="{page: '{paginator.prevPage}', sortBy:'{args.sortBy}', sortOrder: '{args.sortOrder}', limit: '{args.limit}', identifier:'{identifier}'}">
+                    <f:render arguments="{width: '40', height: '40', color: '{settings.icons_color}'}"
+                              partial="Svg/ChevronLeft"/>
+                </f:link.action>
+        </f:if>
+
+        <f:for each="{paginator.pages}" as="page">
+            <li class="{page.isCurrent}">
+                <f:if condition='{page.isCurrent} == 1 || {page.num} == "..."'>
+                    <f:then>
+                        <f:link.action class="current paging history" controller="Standard" action="list" arguments="{page:'{page.num}', sortBy:'{args.sortBy}', sortOrder: '{args.sortOrder}', limit: '{args.limit}', identifier:'{identifier}'}">
+                            {page.num}
+                        </f:link.action>
+                    </f:then>
+                    <f:else>
+                        <f:link.action class="paging history" controller="Standard" action="list" arguments="{page:'{page.num}', sortBy:'{args.sortBy}', sortOrder: '{args.sortOrder}', limit: '{args.limit}', identifier:'{identifier}'}">
+                            {page.num}
+                        </f:link.action>
+                    </f:else>
+                </f:if>
+            </li>
+        </f:for>
+
+        <f:if condition="{paginator.nextUrl}">
+            <li>
+                <f:link.action class="next-page paging history" pageUid="{settings.pid.list}" controller="Standard" action="list" arguments="{page:'{paginator.nextPage}', sortBy:'{args.sortBy}', sortOrder: '{args.sortOrder}', limit: '{args.limit}', identifier:'{identifier}'}">
+                    <f:render arguments="{width: '40', height: '40', color: '{settings.icons_color}'}"
+                              partial="Svg/ChevronRight"/>
+                </f:link.action>
+            </li>
+        </f:if>
+    </ul>
+</f:if>
+
+</html>

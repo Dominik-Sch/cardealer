@@ -1,0 +1,47 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    <div class="wrapper" id="<f:translate key='tx_cardealer_domain_model_car.{property}' />">
+        <button class="form-control toggle-next ellipsis">
+            <span>
+                <f:translate key="tx_cardealer_domain_model_prependLabel.{property}" />
+                ({items.countAll})
+            </span>
+        </button>
+
+
+        <div class="dropdown">
+            <label class="apply-selection">
+                <input type="checkbox" class="ajax-filter" />
+                <span class="check-mark">&#10004;</span> <em>Auswahl übernehmen</em>
+            </label>
+
+            <div class="scroll-div">
+                <label>
+                    <f:form.checkbox value="0"
+                                     class="input all"
+                                     name="tx_cardealer_pi1[filter][{property}][]"
+                                     checked="{f:if(condition: '!{args.filter.{property}.0}', then: 'checked')}" />
+                    <span><f:translate key="tx_cardealer_domain_model_prependLabel.{property}" /> ({items.countAll})</span>
+                </label>
+
+                <f:for each="{items}" as="item" key="key">
+                    <f:if condition="{item.uid}">
+                        <br />
+                        <label class="{item.disabled}">
+                            <f:form.checkbox value="{item.uid}"
+                                             class="input val"
+                                             name="tx_cardealer_pi1[filter][{property}][]"
+                                             disabled="{item.disabled}"
+                                             checked="{f:if(condition: '{item.selected}', then: 'checked')}" />
+                            <span>{item.title} ({item.counter})</span>
+                        </label>
+                    </f:if>
+                </f:for>
+            </div>
+        </div>
+    </div>
+
+</html>
+
+
+
+

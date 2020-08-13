@@ -1,0 +1,45 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default"/>
+
+<f:section name="content">
+
+    <f:flashMessages/>
+
+    <div class="tx-cardealer-list">
+        <f:link.action style="display:none" controller="Standard" action="filter" class="ajaxLink history filterUrl" pageUid="{settings.pid.list}" arguments="{page:'{args.page}', sortBy:'{args.sortBy}', sortOrder: '{args.sortOrder}', limit: '{args.limit}', identifier:'{identifier}'}" >currentFilterPage</f:link.action>
+        <f:link.action style="display:none" controller="Standard" action="list" class="pageUrl" pageUid="{settings.pid.list}" arguments="{page:'{args.page}', sortBy:'{args.sortBy}', sortOrder: '{args.sortOrder}', limit: '{args.limit}', identifier:'{identifier}'}">{args.limit.0} currentFilterRealUrl</f:link.action>
+        <div class="row">
+            <div class="list-header col-sm-12 pl-0 pr-0">
+                <h3 class="text-center resultListHeader">
+                    {cars.count}
+                    <f:translate key="tx_cardealer_pi1_list.counter.label"/>
+                </h3>
+                <div class="paginator-top">
+                    <f:render partial="Widgets/Pagination/Pagination"
+                              arguments="{paginator:paginator, args:args, identifier:'{identifier}', settings: '{settings}'}"/>
+                </div>
+            </div>
+        </div>
+
+        <!--Entries-->
+        <f:for each="{cars.entries}" as="car">
+            <f:render partial="List/Item"
+                      arguments="{car:car,args:'{args}', settings:'{settings}', identifier:'{identifier}'}"/>
+        </f:for>
+
+
+        <!--Paginator-->
+        <div class="paginator-bottom">
+            <f:render partial="Widgets/Pagination/Pagination"
+                      arguments="{paginator:paginator, args:args, identifier:'{identifier}'}"/>
+        </div>
+    </div>
+
+
+</f:section>
+</html>
+
+
+
+
+

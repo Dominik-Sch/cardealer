@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2018-01-03T04:05:31Z"
+          product-name="cardealer">
+        <header/>
+        <body>
+
+            <trans-unit id="tx_cardealer_pi1.name">
+                <source>Cardealer - mobile.de API</source>
+            </trans-unit>
+
+
+            <trans-unit id="tx_cardealer_domain_model_make">
+                <source>Make</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_make.title">
+                <source>Title</source>
+            </trans-unit>
+
+
+            <trans-unit id="tx_cardealer_domain_model_make.models">
+                <source>Models</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_model">
+                <source>Model</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_model.title">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_model.make">
+                <source>Hersteller</source>
+            </trans-unit>
+
+
+            <trans-unit id="tx_cardealer_pi1_cardealer.name">
+                <source>TYPO3 - mobile.de API</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_pi1_cardealer.description">
+                <source>Lorem Ipsum Dolor</source>
+            </trans-unit>
+
+
+            <trans-unit id="tx_cardealer_domain_model_car">
+                <source>Fahrzeug</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.model_description">
+                <source>Modellbeschreibung</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.model">
+                <source>Modell</source>
+            </trans-unit>
+
+
+            <trans-unit id="tx_cardealer_domain_model_car.make">
+                <source>Hersteller</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.carclass">
+                <source>Klasse</source>
+            </trans-unit>
+
+
+            <trans-unit id="tx_cardealer_domain_model_car.category">
+                <source>Kategorie</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.fuel">
+                <source>Kraftstoff</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.gearbox">
+                <source>Getriebeart</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.climatisation">
+                <source>Klimatisierung</source>
+            </trans-unit>
+
+
+            <trans-unit id="tx_cardealer_domain_model_carclass">
+                <source>Klasse</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_carclass.title">
+                <source>Titel</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_carclass.key_id">
+                <source>Schlüssel</source>
+            </trans-unit>
+
+
+            <trans-unit id="tx_cardealer_domain_model_category">
+                <source>Kategorie</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_category.title">
+                <source>Titel</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_category.key_id">
+                <source>Schlüssel</source>
+            </trans-unit>
+
+            <trans-unit id="tx_cardealer_domain_model_car.image_count">
+                <source>Anzahl Fotos</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.price">
+                <source>Preis</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.location">
+                <source>Standort</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.mileage">
+                <source>Kilometerstand</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.first_registration">
+                <source>Erstzulassung</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.carcondition">
+                <source>Fahrzeugzustand</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.usagetype">
+                <source>Fahrzeugart</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.feature">
+                <source>Ausstattung</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.hsn">
+                <source>HSN</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.tsn">
+                <source>TSN</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.schwacke">
+                <source>Schwacke</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.schwacke">
+                <source>Schwacke</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.seller_inventory_key">
+                <source>Interne Nummer</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.add_key">
+                <source>Mobile.de Inseratsnummer</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.creation_date">
+                <source>Datum der Veröffentlichung</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.description">
+                <source>Beschreibung</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.images">
+                <source>Fotos</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.images_as_csv">
+                <source>lokale Fotos als CSV</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.images_urls">
+                <source>mobile.de Foto URLs</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.vatable">
+                <source>MwSt. enthalten</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.company_name">
+                <source>Firmenname</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.address">
+                <source>Adresse</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.zip">
+                <source>PLZ</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.city">
+                <source>Stadt</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.phone">
+                <source>Telefon</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.email">
+                <source>Email</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.coordinates">
+                <source>Koordinaten</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.general_inspection">
+                <source>Hauptuntersuchung</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.power">
+                <source>Leistung</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.num_seats">
+                <source>Anzahl Sitze</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.door_count">
+                <source>Anzahl Türen</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.number_owners">
+                <source>Anzahl der Vorbesitzer</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.cubic_capacity">
+                <source>Hubraum</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.efficiency_class">
+                <source>Effizienzklasse</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.co2_emission">
+                <source>Co2 Emmision</source>
+            </trans-unit>
+
+            <trans-unit id="tx_cardealer_domain_model_car.emission_class">
+                <source>Schadstoffklasse</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.emission_sticker">
+                <source>Plakette</source>
+            </trans-unit>
+
+            <trans-unit id="tx_cardealer_domain_model_car.consumption">
+                <source>Verbrauch</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.inner_consumption">
+                <source>innerorts</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.outer_consumption">
+                <source>außerorts</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.combined_consumption">
+                <source>kombiniert</source>
+            </trans-unit>
+
+            <trans-unit id="tx_cardealer_domain_model_car.interior_color">
+                <source>Farbe Innenausstattung</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.interior_type">
+                <source>Typ Innenausstattung</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.exterior_color">
+                <source>Farbe außen</source>
+            </trans-unit>
+
+            <trans-unit id="tx_cardealer_domain_model_car.airbag">
+                <source>Airbags</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.country_version">
+                <source>Länderversion</source>
+            </trans-unit>
+
+            <trans-unit id="tx_cardealer_domain_model_car.damageunrepaired">
+                <source>beschädigtes Fahrzeug</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.accidentdamaged">
+                <source>Unfallschaden</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.roadworthy">
+                <source>Fahrtauglich</source>
+            </trans-unit>
+
+            <trans-unit id="tx_cardealer_domain_model_car.parking_assistant">
+                <source>Parkassistent</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_car.delivery_date">
+                <source>Lieferdatum</source>
+            </trans-unit>
+
+
+            <trans-unit id="tx_cardealer_domain_model_parkingassistant">
+                <source>Parkassistent</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_parkingassistant.key_id">
+                <source>Schlüssel</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_parkingassistant.title">
+                <source>Titel</source>
+            </trans-unit>
+
+            <trans-unit id="tx_cardealer_domain_model_doorcount">
+                <source>Anzahl Türen</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_doorcount.key_id">
+                <source>Schlüssel</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_doorcount.title">
+                <source>Titel</source>
+            </trans-unit>
+
+            <trans-unit id="tx_cardealer_domain_model_emissionclass">
+                <source>Schadstoffklasse</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_emissionclass.key_id">
+                <source>Schlüssel</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_emissionclass.title">
+                <source>Titel</source>
+            </trans-unit>
+
+            <trans-unit id="tx_cardealer_domain_model_emissionsticker">
+                <source>Umweltplakette</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_emissionsticker.key_id">
+                <source>Schlüssel</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_emissionsticker.title">
+                <source>Titel</source>
+            </trans-unit>
+
+            <trans-unit id="tx_cardealer_domain_model_interiorcolor">
+                <source>Farbe Innenausstattung</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_interiorcolor.key_id">
+                <source>Schlüssel</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_interiorcolor.title">
+                <source>Titel</source>
+            </trans-unit>
+
+            <trans-unit id="tx_cardealer_domain_model_interiortype">
+                <source>Typ Innenausstattung</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_interiortype.key_id">
+                <source>Schlüssel</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_interiortype.title">
+                <source>Titel</source>
+            </trans-unit>
+
+            <trans-unit id="tx_cardealer_domain_model_exteriorcolor">
+                <source>Farbe außen</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_exteriorcolor.key_id">
+                <source>Schlüssel</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_exteriorcolor.title">
+                <source>Titel</source>
+            </trans-unit>
+
+            <trans-unit id="tx_cardealer_domain_model_airbag">
+                <source>Airbags</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_airbag.key_id">
+                <source>Schlüssel</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_airbag.title">
+                <source>Titel</source>
+            </trans-unit>
+
+            <trans-unit id="tx_cardealer_domain_model_countryversion">
+                <source>Länderversion</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_countryversion.key_id">
+                <source>Schlüssel</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_countryversion.title">
+                <source>Titel</source>
+            </trans-unit>
+
+            <trans-unit id="tx_cardealer_domain_model_parkingassistant">
+                <source>Parkassistent</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_parkingassistant.key_id">
+                <source>Schlüssel</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_parkingassistant.title">
+                <source>Titel</source>
+            </trans-unit>
+
+
+
+            <trans-unit id="tx_cardealer_domain_model_feature">
+                <source>Ausstattung</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_feature.key_id">
+                <source>Schlüssel</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_feature.title">
+                <source>Titel</source>
+            </trans-unit>
+
+
+            <trans-unit id="tx_cardealer_domain_model_fuel">
+                <source>Kraftstoff</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_fuel.key_id">
+                <source>Schlüssel</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_fuel.title">
+                <source>Titel</source>
+            </trans-unit>
+
+
+            <trans-unit id="tx_cardealer_domain_model_gearbox">
+                <source>Getriebart</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_gearbox.key_id">
+                <source>Schlüssel</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_gearbox.title">
+                <source>Titel</source>
+            </trans-unit>
+
+
+            <trans-unit id="tx_cardealer_domain_model_climatisation">
+                <source>Getriebart</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_climatisation.key_id">
+                <source>Schlüssel</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_climatisation.title">
+                <source>Titel</source>
+            </trans-unit>
+
+
+
+            <trans-unit id="tx_cardealer_domain_model_carcondition">
+                <source>Fahrzeugzustand</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_carcondition.key_id">
+                <source>Schlüssel</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_carcondition.title">
+                <source>Titel</source>
+            </trans-unit>
+
+
+            <trans-unit id="tx_cardealer_domain_model_usagetype">
+                <source>Fahrzeugart</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_usagetype.key_id">
+                <source>Schlüssel</source>
+            </trans-unit>
+            <trans-unit id="tx_cardealer_domain_model_usagetype.title">
+                <source>Titel</source>
+            </trans-unit>
+
+
+
+        </body>
+    </file>
+</xliff>

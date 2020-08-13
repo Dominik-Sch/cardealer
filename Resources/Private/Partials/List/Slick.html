@@ -1,0 +1,97 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+{namespace custom=EXOTEC\Cardealer\ViewHelpers}
+    <div>
+        <h2>
+            <f:if condition="{settings.ajax_detail_view}">
+                <f:then>
+                    <f:link.action style="display:none !important;" class="ajaxLink show" action="show" controller="Standard" pageUid="{settings.pid.details}" additionalParams="{type: '1508'}" arguments="{car: '{car.uid}', make: '{f:if(condition: i.isFirst, then: \'{x.uid}\') -> f:for(each:\'{car.make}\', as: \'x\', iteration: \'i\')}', identifier: '{identifier}'}" >ajax call</f:link.action>
+
+                    <f:link.action class="ellipsis show" onclick="triggerAjaxClick(this); return false;" action="show" controller="Standard" pageUid="{settings.pid.details}" arguments="{car: '{car.uid}', make: '{f:if(condition: i.isFirst, then: \'{x.uid}\') -> f:for(each:\'{car.make}\', as: \'x\', iteration: \'i\')}', identifier: '{identifier}'}" >
+                        <f:for each="{car.make}" as="value" iteration="_iter">
+                            <f:if condition="{_iter.isFirst}">
+                                <f:format.raw>{value.title}</f:format.raw>
+                            </f:if>
+                        </f:for>
+                        {car.modelDescription}
+                    </f:link.action>
+                </f:then>
+                <f:else>
+                    <f:link.action class="ellipsis show" action="show" controller="Standard" pageUid="{settings.pid.details}" arguments="{car: '{car.uid}', make: '{f:if(condition: i.isFirst, then: \'{x.uid}\') -> f:for(each:\'{car.make}\', as: \'x\', iteration: \'i\')}', identifier: '{identifier}'}" >
+                        <f:for each="{car.make}" as="value" iteration="_iter">
+                            <f:if condition="{_iter.isFirst}">
+                                <f:format.raw>{value.title}</f:format.raw>
+                            </f:if>
+                        </f:for>
+                        {car.modelDescription}
+                    </f:link.action>
+                </f:else>
+            </f:if>
+        </h2>
+
+        <div class="specials-image">
+            <f:for each="{car.images}" as="image" iteration="_iter">
+                <f:if condition="{_iter.isFirst}">
+                    <f:if condition="{settings.ajax_detail_view}">
+                        <f:then>
+                            <f:link.action style="display:none !important;" class="ajaxLink show" action="show" controller="Standard" pageUid="{settings.pid.details}" additionalParams="{type: '1508'}" arguments="{car: '{car.uid}', make: '{f:if(condition: i.isFirst, then: \'{x.uid}\') -> f:for(each:\'{car.make}\', as: \'x\', iteration: \'i\')}', identifier: '{identifier}'}" >ajax call</f:link.action>
+                            <f:link.action controller="Standard" class="show ellipsis" onclick="triggerAjaxClick(this); return false;" action="show" pageUid="{settings.pid.details}" arguments="{car: '{car.uid}', make: '{f:if(condition: i.isFirst, then: \'{x.uid}\') -> f:for(each:\'{car.make}\', as: \'x\', iteration: \'i\')}', identifier: '{identifier}'}" >
+                                <f:image src="{image.uid}" treatIdAsReference="1" maxWidth="300"/>
+                            </f:link.action>
+                        </f:then>
+                        <f:else>
+                            <f:link.action controller="Standard" class="show ellipsis" action="show" pageUid="{settings.pid.details}" arguments="{car: '{car.uid}', make: '{f:if(condition: i.isFirst, then: \'{x.uid}\') -> f:for(each:\'{car.make}\', as: \'x\', iteration: \'i\')}', identifier: '{identifier}'}" >
+                                <f:image src="{image.uid}" treatIdAsReference="1" maxWidth="300"/>
+                            </f:link.action>
+                        </f:else>
+                    </f:if>
+                </f:if>
+            </f:for>
+        </div>
+
+        <hr style="margin:5px 0;" />
+
+        <f:format.raw><custom:newcar value='{car.creationDate}' /></f:format.raw>
+
+        <div>
+            <span class="ellipsis">EZ: <f:format.date format="m/Y">{car.firstRegistration}</f:format.date></span>
+            <span class="ellipsis">{car.mileage} km</span><br />
+            <span class="ellipsis">
+                            {car.power} kW
+                            (<f:format.number decimals="0" decimalSeparator="." thousandsSeparator=","><f:cObject typoscriptObjectPath="plugin.tx_cardealer_pi1.lib.math" data="{car.power} / 0.735"></f:cObject></f:format.number> PS)
+                        </span><br />
+            <f:for each="{car.gearbox}" as="value" iteration="_iter">
+                <f:if condition="{_iter.isFirst}">
+                    <span class="ellipsis"><f:format.raw>{value.title}</f:format.raw></span>
+                </f:if>
+            </f:for><br />
+            <f:for each="{car.fuel}" as="value" iteration="_iter">
+                <f:if condition="{_iter.isFirst}">
+                    <span class="ellipsis"><f:format.raw>{value.title}</f:format.raw></span>
+                </f:if>
+            </f:for>
+        </div>
+
+        <div class="price">
+            <h3>&euro; <f:format.number decimals="0" decimalSeparator="," thousandsSeparator=".">{car.price}</f:format.number></h3>
+            <p><i class="text-muted mwst">
+                <f:if condition="{car.vatable} == 1">
+                    <f:then>
+                        MWSt. ausweisbar
+                    </f:then>
+                    <f:else>
+                        MWSt. nicht ausweisbar
+                    </f:else>
+                </f:if>
+            </i></p>
+        </div>
+
+        <f:if condition="{car.efficiencyClass}">
+            <f:then>
+                <p class="envkv_infos">
+                    <f:format.number decimals="1" decimalSeparator=".">{car.combinedConsumption}</f:format.number> L/100km (komb.), {car.co2Emission}g CO₂/km (komb.)
+                </p>
+            </f:then>
+        </f:if>
+
+    </div>
+</html>

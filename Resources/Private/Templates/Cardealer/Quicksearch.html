@@ -1,0 +1,38 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="content">
+
+    <f:flashMessages />
+
+    <div class="tx-cardealer-filter row">
+
+        <a class="btn btn-primary toggle-filter" href="#">
+            <span class="glyphicon glyphicon-search"></span>
+            Fahrzeugsuche
+        </a>
+
+        <f:form name="filter" method="post"  pageUid="{settings.pid.list}" class="quicksearch" >
+            <div class="row">
+                <!-- Formfields -->
+                <f:for each="{fields}" as="items" key="property" iteration="_iter">
+                    <f:if condition="{_iter.cycle} == 5">
+                        <div class="col-md-4">
+                            <f:form.button class="btn btn-primary form-control">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                {count}
+                                <f:translate key='tx_cardealer_pi1_filter.showResults' />
+                            </f:form.button>
+                        </div>
+                    </f:if>
+                    <div class="col-md-4">
+                        <f:render partial="Filter/{items.partialName}" arguments="{args:args, items:'{items}', property:'{property}'}" />
+                    </div>
+                </f:for>
+            </div>
+
+        </f:form>
+    </div>
+
+</f:section>
+
+</html>

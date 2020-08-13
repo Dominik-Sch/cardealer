@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2018.  Alexander Weber <weber@exotec.de> - exotec - TYPO3 Services
+  ~
+  ~ All rights reserved
+  ~
+  ~ This script is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ This copyright notice MUST APPEAR in all copies of the script!
+  ~
+  -->
+
+<phpunit bootstrap="./tests/bootstrap.php"
+		colors="true"
+		convertErrorsToExceptions="true"
+		convertNoticesToExceptions="true"
+		convertWarningsToExceptions="true"
+		stopOnFailure="false">
+		<testsuites>
+			<testsuite name="Creole Test Suite">
+				<file>./tests/CreoleTest.php</file>
+			</testsuite>
+		</testsuites>
+		<filter>
+			<blacklist>
+				<directory>./vendor</directory>
+				<directory>./tests</directory>
+			</blacklist>
+		</filter>
+</phpunit>
+

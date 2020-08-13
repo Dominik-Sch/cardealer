@@ -1,0 +1,339 @@
+<html data-namespace-typo3-fluid="true" xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+{namespace custom=EXOTEC\Cardealer\ViewHelpers}
+
+<f:layout name="Default"/>
+
+<f:section name="content">
+
+    <f:flashMessages/>
+
+    <div class="bar details"></div>
+
+    <div class="container" id="carDetails">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="model_description">
+                    <f:if condition="{args.page}">
+                        <f:then>
+                            <f:link.action action="list"
+                                           arguments="{page:'{args.page}', sortBy:'{args.sortBy}', sortOrder: '{args.sortOrder}', limit: '{args.limit}', identifier:'{identifier}'}"
+                                           class="backlink pull-right btn btn-danger"
+                                           controller="Standard"
+                                           pageUid="{settings.pid.list}">
+                                <span class="material-icon">
+                                    <f:render arguments="{width: '30', height: '30', color: 'white'}"
+                                              partial="Svg/Close"/>
+                                </span>
+<!--                                <f:translate key="tx_cardealer_pi1_show.back.label"/>-->
+                            </f:link.action>
+                        </f:then>
+                        <f:else>
+                            <f:link.action action="list"
+                                           arguments="{page: '1', sortBy: 'price', sortOrder: 'ASC', limit: '10', identifier:'4035eff091a9897f0d3a25e6'}"
+                                           class="backlink pull-right btn btn-danger"
+                                           controller="Standard"
+                                           pageUid="{settings.pid.list}">
+                                <span class="material-icon">
+                                    <f:render arguments="{width: '30', height: '30', color: 'white'}"
+                                              partial="Svg/Close"/>
+                                </span>
+<!--                                <f:translate key="tx_cardealer_pi1_show.back.label"/>-->
+                            </f:link.action>
+
+                        </f:else>
+                    </f:if>
+                    <f:for as="value" each="{car.make}" iteration="_iter">
+                        <f:if condition="{_iter.isFirst}">
+                            <f:format.raw>{value.title}</f:format.raw>
+                        </f:if>
+                    </f:for>
+                    <f:format.raw>{car.modelDescription}</f:format.raw>
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="flexslider" id="slider">
+                    <ul class="slides">
+                        <f:for as="image" each="{car.images}">
+                            <li>
+                                <f:image alt="{car.modelDescription}" maxWidth="500" src="{image.uid}"
+                                         treatIdAsReference="1"/>
+                            </li>
+                        </f:for>
+                    </ul>
+                </div>
+                <div class="flexslider" id="carousel">
+                    <ul class="slides">
+                        <f:for as="image" each="{car.images}">
+                            <li>
+                                <f:image alt="{car.modelDescription}" maxWidth="95" src="{image.uid}"
+                                         treatIdAsReference="1"/>
+                            </li>
+                        </f:for>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="col-md-3">
+                <f:for as="value" each="{car.category}" iteration="_iter">
+                    <f:if condition="{_iter.isFirst}">
+                        <f:format.raw><strong>{value.title}</strong><br/></f:format.raw>
+                    </f:if>
+                </f:for>
+                <f:for as="value" each="{car.carCondition}" iteration="_iter">
+                    <f:if condition="{_iter.isFirst}">
+                        <f:format.raw><strong>{value.title}</strong><br/></f:format.raw>
+                    </f:if>
+                </f:for>
+                {car.location}<br/>
+                <f:for as="value" each="{car.countyVersion}" iteration="_iter">
+                    <f:if condition="{_iter.isFirst}">
+                        <f:format.raw><strong>{value.title}</strong><br/></f:format.raw>
+                    </f:if>
+                </f:for>
+
+                Lieferdatum:
+                <f:format.date format="m/Y">{car.deliveryDate}</f:format.date>
+                <br/>
+                EZ:
+                <f:format.date format="m/Y">{car.firstRegistration}</f:format.date>
+                <br/>
+                <f:format.number decimalSeparator="," decimals="0" thousandsSeparator=".">{car.mileage}
+                </f:format.number>
+                km<br/>
+                <f:for as="value" each="{car.fuel}" iteration="_iter">
+                    <f:if condition="{_iter.isFirst}">
+                        <f:format.raw>{value.title}<br/></f:format.raw>
+                    </f:if>
+                </f:for>
+                {car.power} kW (
+                <f:format.number decimalSeparator="." decimals="0" thousandsSeparator=",">
+                    <f:cObject data="{car.power} / 735"
+                               typoscriptObjectPath="plugin.tx_cardealer_pi1.lib.math"></f:cObject>
+                </f:format.number>
+                PS)<br/>
+                <f:for as="value" each="{car.gearbox}" iteration="_iter">
+                    <f:if condition="{_iter.isFirst}">
+                        <f:format.raw>{value.title}<br/></f:format.raw>
+                    </f:if>
+                </f:for>
+                <br/>
+                <f:format.raw>
+                    <f:translate
+                            key="tx_cardealer_domain_model_car.damage.{car.damageunrepaired}.{car.accidentdamaged}.{car.roadworthy}"/>
+                </f:format.raw>
+
+                <br/>
+
+                <f:if condition="{settings.showOpelCertImage} != 1">
+                    <f:format.raw>
+                        <custom:certimage addCondition="{car.carcondition.title}"
+                                          addFirstRegistration="{car.firstRegistration}" addMileage="{car.mileage}"/>
+                    </f:format.raw>
+                </f:if>
+            </div>
+            <div class="col-md-3 align-right">
+                <f:format.raw>
+                    <custom:newcar value='{car.creationDate}'/>
+                </f:format.raw>
+                <h4 class="price">
+                    &euro;
+                    <f:format.number decimalSeparator="," decimals="0"
+                                     thousandsSeparator=".">{car.price}
+                    </f:format.number>
+                </h4>
+                <i class="text-muted mwst">
+                    <f:if condition="{car.vatable}">
+                        <f:then>
+                            MWSt. ausweisbar
+                        </f:then>
+                        <f:else>
+                            MWSt. nicht ausweisbar
+                        </f:else>
+                    </f:if>
+                </i>
+
+                <div class="buttons">
+                    <a class="d-none d-sm-block d-md-none btn btn-md btn-success" href="tel:{car.phone}" id="callNow">
+                        <span class="material-icon">
+                            <f:render arguments="{width: '24', height: '24', color: 'white'}"
+                                      partial="Svg/Phone"/>
+                        </span>
+                        Anrufen
+                    </a>
+                    <a class="showForm btn btn-md btn-primary" href="#" id="tx-cardealer-requestform" target="_blank">
+                        <span class="material-icon">
+                            <f:render arguments="{width: '24', height: '24', color: 'white'}"
+                                      partial="Svg/Mail"/>
+                        </span>
+                        Fahrzeuganfrage
+                    </a>
+                    <a class="showForm btn btn-md btn-info" href="#" id="tx-cardealer-tipafriend" target="_blank">
+                        <span class="material-icon">
+                            <f:render arguments="{width: '24', height: '24', color: 'white'}"
+                                      partial="Svg/Comment"/>
+                        </span>
+                        Weitersagen
+                    </a>
+                    <f:link.action action="show" arguments="{car : '{car.uid}', make: '{car.make.uid}'}"
+                                   class="d-block d-sm-none d-md-block printLink half-width btn btn-md btn-default"
+                                   format="print" pageType="98" pageUid="{settings.pid.details}" target="_blank">
+                        <span class="material-icon">
+                            <f:render arguments="{width: '24', height: '24', color: '#2b2b2b'}"
+                                      partial="Svg/Print"/>
+                        </span>
+                        Drucken
+                    </f:link.action>
+
+                    <i class="text-muted carNumber"><em>Mobile.de Inserat: {car.uid}</em></i>
+                    <f:if condition="{car.seller_inventory_key}">
+                        <br/><i class="text-muted carNumber"><em>Interne Nummer: {car.seller_inventory_key}</em></i>
+                    </f:if>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="item">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3 class="toggleNext">
+                        <span class="open pull-right float-right">
+                            <f:render arguments="{width: '40', height: '40', color: '{settings.icons_color}'}"
+                                      partial="Svg/ChevronRight"/>
+                        </span>
+                        <span class="close pull-right float-right">
+                            <f:render arguments="{width: '20', height: '20', color: '{settings.icons_color}'}"
+                                      partial="Svg/Close"/>
+                        </span>
+                        Weitere technische Daten</h3>
+                </div>
+            </div>
+            <div class="toggleContent row">
+                <div class="col-sm-4">
+                    <dl>
+                        <f:format.raw>
+                            <custom:getspecifics addUid="{car.uid}"/>
+                        </f:format.raw>
+                    </dl>
+                </div>
+                <div class="col-sm-4">
+                    <dl>
+                        <f:format.raw>
+                            <custom:getconsumptions addUid="{car.uid}"/>
+                        </f:format.raw>
+                    </dl>
+                </div>
+                <div class="col-sm-4">
+                    <f:if condition="{car.efficiencyClass}">
+                        <f:then>
+                            <b>CO2-Effizienz:</b><br/>
+                            <f:image class="effClassImg" maxWidth="300" maxHeight="200"
+                                     src="typo3conf/ext/cardealer/Resources/Public/Img/{car.efficiencyClass}.png"
+                                     alt="{car.efficiencyClass}" title="{car.efficiencyClass}" />
+                        </f:then>
+                    </f:if>
+                </div>
+
+                <div class="col-md-12 dat-hinweis">
+                    <p class="text-muted">Weitere Informationen zum offiziellen Kraftstoffverbrauch und den offiziellen
+                        spezifischen CO2-Emissionen neuer Personenkraftwagen können dem <a
+                                href="http://www.dat.de/uploads/media/LeitfadenCO2.pdf" target="_blank">"Leitfaden über
+                            den Kraftstoffverbrauch, die CO2-Emissionen und den Stromverbrauch neuer
+                            Personenkraftwagen"</a> entnommen werden, der an allen Verkaufsstellen und bei der Deutschen
+                        Automobil Treuhand GmbH (DAT) unentgeltlich erhältlich ist. Die angegebenen Werte wurden nach
+                        dem vorgeschriebenen Messverfahren (§ 2 Nrn. 5, 6, 6a Pkw-EnVKV in der jeweils geltenden
+                        Fassung) ermittelt. Die Angaben beziehen sich nicht auf ein einzelnes Fahrzeug und sind nicht
+                        Bestandteil des Angebots, sondern dienen allein Vergleichszwecken zwischen den verschiedenen
+                        Fahrzeugtypen.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="item">
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3 class="toggleNext">
+                        <span class="open pull-right float-right">
+                                <f:render arguments="{width: '40', height: '40', color: '{settings.icons_color}'}"
+                                          partial="Svg/ChevronRight"/>
+                            </span>
+                        <span class="close pull-right float-right">
+                                <f:render arguments="{width: '20', height: '20', color: '{settings.icons_color}'}"
+                                          partial="Svg/Close"/>
+                            </span>
+                        Ausstattung</h3>
+                </div>
+            </div>
+            <div class="toggleContent row">
+                <div class="col-sm-3">
+                    <strong>Innenausstattung</strong>
+                    <ul>
+                        <f:format.raw>
+                            <custom:getinteriordata addUid="{car.uid}"/>
+                        </f:format.raw>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <strong>Außenausstattung</strong>
+                    <ul>
+                        <f:format.raw>
+                            <custom:getexteriordata addUid="{car.uid}"/>
+                        </f:format.raw>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <strong>Extras</strong>
+                    <ul>
+                        <f:format.raw>
+                            <custom:getextradata addUid="{car.uid}"/>
+                        </f:format.raw>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <strong>Sicherheit und Umwelt</strong>
+                    <ul>
+                        <f:format.raw>
+                            <custom:getsecurityenvironment addUid="{car.uid}"/>
+                        </f:format.raw>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="item">
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3 class="toggleNext">
+                        <span class="open pull-right float-right">
+                                <f:render arguments="{width: '40', height: '40', color: '{settings.icons_color}'}"
+                                          partial="Svg/ChevronRight"/>
+                            </span>
+                        <span class="close pull-right float-right">
+                                <f:render arguments="{width: '20', height: '20', color: '{settings.icons_color}'}"
+                                          partial="Svg/Close"/>
+                            </span>
+                        Fahrzeugbeschreibung</h3>
+                </div>
+            </div>
+            <div class="toggleContent row">
+                <div class="description col-sm-12">
+                    <f:format.raw>
+                        <custom:description value="{car.description}"/>
+                    </f:format.raw>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</f:section>
+
+</html>

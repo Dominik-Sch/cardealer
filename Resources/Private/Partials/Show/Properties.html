@@ -1,0 +1,135 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+{namespace custom=EXOTEC\Cardealer\ViewHelpers}
+
+<table>
+    <tr>
+        <td valign="top">
+            <h2>
+                <f:translate key="tx_cardealer_domain_model_car.make" />: {car.make.0.title} <br />
+                <f:translate key="tx_cardealer_domain_model_car.model" />: {car.model.0.title} <br />
+                <f:translate key="tx_cardealer_domain_model_car.modelDescription" />: {car.modelDescription}
+            </h2>
+
+            <h3>
+                <f:translate key="tx_cardealer_domain_model_car.price" />:
+                <f:format.currency currencySign="€" prependCurrency="true" thousandsSeparator=".">{car.price}</f:format.currency>
+            </h3>
+
+            <div>
+                <strong>
+                    <f:translate key="tx_cardealer_domain_model_car.mileage" />:</strong> {car.mileage}
+            </div>
+
+            <div>
+                <strong>
+                    <f:translate key="tx_cardealer_domain_model_car.hsn" />:</strong> {car.hsn}
+            </div>
+
+            <div>
+                <strong>
+                    <f:translate key="tx_cardealer_domain_model_car.tsn" />:</strong> {car.tsn}
+            </div>
+
+            <div>
+                <strong>
+                    <f:translate key="tx_cardealer_domain_model_car.schwacke" />:</strong> {car.schwacke}
+            </div>
+
+            <div>
+                <strong>
+                    <f:translate key="tx_cardealer_domain_model_car.creationDate" />:</strong> <f:format.date format="d.m.Y">{car.creationDate}</f:format.date>
+            </div>
+
+            <div>
+                <strong>
+                    <f:translate key="tx_cardealer_domain_model_car.addKey" />:</strong> {car.addKey}
+            </div>
+
+            <div>
+                <strong>
+                    <f:translate key="tx_cardealer_domain_model_car.sellerInventoryKey" />:</strong> {car.sellerInventoryKey}
+            </div>
+
+            <div>
+                <strong>
+                    <f:translate key="tx_cardealer_domain_model_car.firstRegistration" />:</strong> <f:format.date format="d.m.Y">{car.firstRegistration}</f:format.date>
+            </div>
+
+            <div>
+                <strong>
+                    <f:translate key="tx_cardealer_domain_model_car.carclass" />:</strong> {car.carclass.0.title}
+            </div>
+
+            <div>
+                <strong>
+                    <f:translate key="tx_cardealer_domain_model_car.category" />:</strong> {car.category.0.title}
+            </div>
+
+            <div>
+                <strong>
+                    <f:translate key="tx_cardealer_domain_model_car.fuel" />:</strong> {car.fuel.0.title}
+            </div>
+
+            <div>
+                <strong>
+                    <f:translate key="tx_cardealer_domain_model_car.gearbox" />:</strong> {car.gearbox.0.title}
+            </div>
+
+            <div>
+                <strong>
+                    <f:translate key="tx_cardealer_domain_model_car.climatisation" />:</strong> {car.climatisation.0.title}
+            </div>
+
+            <div>
+                <strong>
+                    <f:translate key="tx_cardealer_domain_model_car.carcondition" />:</strong> {car.carcondition.0.title}
+            </div>
+
+            <div>
+                <strong>
+                    <f:translate key="tx_cardealer_domain_model_car.usagetype" />:</strong> {car.usagetype.0.title}
+            </div>
+
+            <div>
+                <strong>
+                    <f:translate key="tx_cardealer_domain_model_car.feature" />:</strong>
+                <br />
+                <ol>
+                    <f:for each="{car.feature}" as="feature">
+                        <li>
+                            {feature.title}
+                        </li>
+                    </f:for>
+                </ol>
+            </div>
+
+            <div>
+                <strong>
+                    <f:translate key="tx_cardealer_domain_model_car.description" />:</strong>
+                <br />
+                <ul style="margin: 0 20px;list-style-type: inherit;">
+                    <f:format.raw><custom:description value="{car.description}" /></f:format.raw>
+                </ul>
+            </div>
+
+            <div>
+                <strong>
+                    <f:translate key="tx_cardealer_domain_model_car.images" />:</strong>
+                <br />
+                <f:for each="{car.images}" as="image">
+                    <a href="fileadmin{image.originalResource.originalFile.properties.identifier}"
+                       target="_blank">
+                        <f:image src="{image.uid}" treatIdAsReference="1" maxWidth="200" />
+                    </a>
+                </f:for>
+            </div>
+        </td>
+        <td valign="top" style="background: #eee;padding: ">
+            <v:content.render contentUids="{0:282, 1:283}"></v:content.render>
+        </td>
+    </tr>
+</table>
+
+
+
+</html>

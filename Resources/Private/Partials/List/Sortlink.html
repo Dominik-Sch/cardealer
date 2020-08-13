@@ -1,0 +1,11 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:link.action controller="Standard"
+               class="ajaxLink sortLink"
+               arguments="{page: '{args.page}', sortBy:'{property}', sortOrder: {0:'{f:translate(key: \'tx_cardealer_pi1_label.{args.sortOrder.0}.toggle\')}'}, limit: {0: args.limit.0}, identifier:'{identifier}'}"
+
+               title="Klicken um {f:translate(key: 'tx_cardealer_pi1_label.{args.sortOrder.0}.title')} nach {f:translate(key: 'tx_cardealer_domain_model_{property}')} zu sortieren">
+    <f:format.raw>
+        <f:translate key="tx_cardealer_pi1_label.{args.sortOrder.0}"/>
+    </f:format.raw>
+</f:link.action>
+</html>

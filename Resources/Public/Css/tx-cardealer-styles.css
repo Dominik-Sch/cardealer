@@ -1,0 +1,616 @@
+@charset "UTF-8";
+body.no-scroll {
+  overflow: hidden;
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tx-cardealer .ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  display: inline-block;
+  margin: 0;
+}
+.tx-cardealer .loading {
+  text-align: center;
+}
+.tx-cardealer .dimmed {
+  opacity: 0.5;
+  position: relative;
+  z-index: 99;
+}
+
+.tx-cardealer-requestform,
+.tx-cardealer-tipafriend,
+.powermail_create {
+  padding: 20px;
+  position: fixed;
+  z-index: 90;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+.tx-cardealer-requestform #powermail_field_fahrzeugdaten,
+.tx-cardealer-requestform #powermail_field_link,
+.tx-cardealer-tipafriend #powermail_field_fahrzeugdaten,
+.tx-cardealer-tipafriend #powermail_field_link,
+.powermail_create #powermail_field_fahrzeugdaten,
+.powermail_create #powermail_field_link {
+  cursor: not-allowed;
+  background: #eee;
+  margin-bottom: 20px;
+}
+.tx-cardealer-requestform #powermail_field_link,
+.tx-cardealer-tipafriend #powermail_field_link,
+.powermail_create #powermail_field_link {
+  height: 40px;
+  text-align: center;
+}
+.tx-cardealer-requestform .nolabel label,
+.tx-cardealer-tipafriend .nolabel label,
+.powermail_create .nolabel label {
+  display: none;
+}
+.tx-cardealer-requestform .closeBtn,
+.tx-cardealer-tipafriend .closeBtn,
+.powermail_create .closeBtn {
+  position: absolute;
+  z-index: 100;
+  top: 20px;
+  right: 20px;
+  color: #ca1a18;
+  font-size: 40px;
+  cursor: pointer;
+  pointer-events: all;
+}
+.tx-cardealer-requestform fieldset,
+.tx-cardealer-tipafriend fieldset,
+.powermail_create fieldset {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 90;
+}
+.tx-cardealer-requestform h3,
+.tx-cardealer-tipafriend h3,
+.powermail_create h3 {
+  display: none;
+}
+
+.powermail_fieldwrap {
+  margin-bottom: 15px;
+}
+
+.powermail_label {
+  display: none;
+}
+
+.powermail_create {
+  text-align: center;
+  cursor: pointer;
+}
+
+legend.powermail_legend {
+  text-align: center;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.powermail_progressbar {
+  display: block !important;
+  margin-top: 15px;
+  background-color: #4a4a4a !important;
+  width: 100% !important;
+  height: 20px !important;
+  background: url("/typo3conf/ext/powermail/Resources/Public/Image/icon_loading.gif") repeat-x;
+}
+
+.powermail_message {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 10px;
+  list-style-type: none;
+  padding: 5px 0 10px 20px;
+  min-height: 65px;
+  background-color: #EBCCD1;
+  border: 1px solid #ca1a18;
+  background-position: 98% 10px;
+  background-repeat: no-repeat;
+}
+
+.parsley-error {
+  background-color: #EBCCD1;
+  border: 1px solid #ca1a18;
+}
+
+img#powermail_captchaimage.powermail_captchaimage {
+  max-width: 320px;
+}
+
+.powermail_submit {
+  margin-top: 15px;
+  float: right;
+}
+
+#powermail_captchaimage {
+  margin: 5px 0;
+}
+
+.parsley-errors-list.filled {
+  margin: 0;
+  padding: 5px;
+  text-align: center;
+  list-style-type: none;
+  background: #ca1a18;
+  color: #fff;
+}
+
+.tx-cardealer-requestform,
+.tx-cardealer-tipafriend {
+  display: none;
+  z-index: 9999;
+}
+
+.toggle-filter {
+  display: none;
+  margin: 10px 0;
+}
+
+@media screen and (max-width: 991px) {
+  .toggle-filter {
+    display: block;
+  }
+}
+.tx-cardealer-filter .btn .glyphicon {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+}
+.tx-cardealer-filter button.btn .glyphicon {
+  left: 15px;
+  top: 15px;
+}
+.tx-cardealer-filter.row {
+  margin: 0;
+}
+.tx-cardealer-filter label {
+  font-weight: normal;
+  font-size: 15px;
+  cursor: pointer;
+}
+.tx-cardealer-filter select.sorting {
+  height: 40px;
+}
+.tx-cardealer-filter h5 {
+  margin-bottom: 5px;
+}
+.tx-cardealer-filter hr {
+  margin: 5px 0;
+}
+.tx-cardealer-filter .chosen-container {
+  margin-bottom: 5px;
+}
+.tx-cardealer-filter .reset {
+  display: block;
+}
+
+.tx-cardealer-filter ::-webkit-input-placeholder {
+  color: #999;
+}
+.tx-cardealer-filter ::-moz-placeholder {
+  color: #999;
+}
+.tx-cardealer-filter ::placeholder {
+  color: #999;
+}
+.tx-cardealer-filter button.toggle-next {
+  text-align: left;
+}
+.tx-cardealer-filter button.toggle-next:before {
+  content: "▾";
+  margin-right: 5px;
+  float: right;
+}
+.tx-cardealer-filter .wrapper {
+  position: relative;
+  margin-bottom: 5px;
+}
+.tx-cardealer-filter .dropdown {
+  display: none;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  background: #fff;
+}
+.tx-cardealer-filter .quicksearch .dropdown {
+  position: absolute;
+}
+.tx-cardealer-filter .chkBox, .tx-cardealer-filter .radioBox {
+  margin-right: 5px;
+}
+.tx-cardealer-filter .apply-selection {
+  display: none;
+  width: 100%;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  background: #eee;
+  margin: 0;
+  padding: 5px 10px;
+}
+.tx-cardealer-filter .apply-selection .check-mark {
+  color: #5cb85c;
+}
+.tx-cardealer-filter .apply-selection input {
+  display: none;
+}
+.tx-cardealer-filter .scroll-div {
+  max-height: 220px;
+  overflow: auto;
+  border: 1px solid #ccc;
+  border-top: 0;
+  padding: 5px 10px;
+}
+.tx-cardealer-filter button.moreOptions {
+  display: block;
+  width: 100%;
+}
+.tx-cardealer-filter .toggleContent {
+  display: none;
+  max-height: 200px;
+  overflow: auto;
+  background: #eee;
+  padding: 10px;
+}
+.tx-cardealer-filter .limit {
+  width: 45px;
+  height: 30px !important;
+  line-height: 20px !important;
+  display: inline-block;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+.tx-cardealer-filter .sorting.radio {
+  display: none;
+}
+.tx-cardealer-filter .sorting_field {
+  margin: 5px 0 10px;
+}
+.tx-cardealer-filter .sorting_field select {
+  -webkit-appearance: none;
+  border-radius: 0;
+  border-right: none;
+}
+.tx-cardealer-filter .sorting_field .glyphicon {
+  color: #ccc;
+  cursor: pointer;
+}
+.tx-cardealer-filter .sorting_field .glyphicon.act {
+  color: #555;
+  cursor: default;
+}
+.tx-cardealer-filter .sorting_field .input-group-addon {
+  padding: 0 7px 0 0;
+  height: 40px;
+  line-height: 35px;
+  border: 1px solid #ced4da;
+  border-left: none;
+}
+.tx-cardealer-filter .sorting_field .input-group-addon:nth-child(2) {
+  border-right: none;
+}
+
+ul.paginator {
+  margin: 15px 0;
+}
+ul.paginator a.current {
+  color: #555;
+  cursor: text;
+}
+
+.paginator-top ul.paginator li a.prev-page, .paginator-top ul.paginator li a.next-page {
+  position: absolute;
+  top: 60px;
+}
+@media screen and (max-width: 991px) {
+  .paginator-top ul.paginator li a.prev-page, .paginator-top ul.paginator li a.next-page {
+    top: 55px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .paginator-top ul.paginator li a.prev-page, .paginator-top ul.paginator li a.next-page {
+    top: 55px;
+  }
+}
+.paginator-top ul.paginator li a.prev-page {
+  left: 10px;
+}
+.paginator-top ul.paginator li a.next-page {
+  right: 10px;
+}
+
+.paginator-bottom ul.paginator li a.prev-page {
+  position: absolute;
+  left: 10px;
+  margin-top: -17px;
+}
+.paginator-bottom ul.paginator li a.next-page {
+  position: absolute;
+  right: 10px;
+  margin-top: -17px;
+}
+
+.tx-cardealer-list .list-header {
+  padding: 0;
+}
+.tx-cardealer-list .list-header .resultListHeader {
+  margin: 0;
+  padding: 0;
+  line-height: 38px;
+  font-size: 20px;
+  background: #eee;
+}
+.tx-cardealer-list .frame {
+  padding-top: 0 !important;
+}
+
+.tx-cardealer-list-item {
+  padding: 10px 0;
+}
+.tx-cardealer-list-item:nth-child(even) {
+  background: #f8f8f8;
+}
+.tx-cardealer-list-item:nth-child(odd) {
+  background: #eee;
+}
+.tx-cardealer-list-item .location {
+  font-size: 14px;
+}
+.tx-cardealer-list-item .listImg {
+  padding-right: 0;
+}
+@media screen and (max-width: 991px) {
+  .tx-cardealer-list-item .listImg {
+    padding-right: 20px;
+  }
+}
+.tx-cardealer-list-item .listImg img {
+  width: 100%;
+  height: auto;
+}
+.tx-cardealer-list-item .price h4 {
+  padding-top: 10px;
+  font-size: 40px;
+  text-align: right;
+}
+.tx-cardealer-list-item .price .mwst {
+  font-size: 12px;
+  text-align: right;
+  display: block;
+}
+
+.firstOption {
+  display: none !important;
+}
+
+.multiselect-native-select {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 5px;
+}
+.multiselect-native-select .dropdown-menu {
+  min-width: 100%;
+}
+
+.sorting_field .multiselect-native-select {
+  margin-bottom: 0;
+}
+
+.slick-slider div.specials-image {
+  min-height: 180px;
+}
+.slick-slider .slick-prev:before,
+.slick-slider .slick-next:before {
+  color: #555;
+}
+.slick-slider .slick-track .slick-slide {
+  max-width: 280px;
+}
+.slick-slider.slick-initialized .slick-slide {
+  position: relative;
+  display: block;
+  margin: 20px;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.55);
+  padding: 20px;
+  height: auto;
+}
+.slick-slider.slick-initialized .slick-slide .specials-image img {
+  width: 100%;
+  max-height: 180px;
+}
+
+#carDetails .btn .material-icon {
+  margin-right: 10px;
+  position: relative;
+  top: -2px;
+}
+#carDetails .btn.backlink .material-icon {
+  margin-right: 0;
+}
+#carDetails h3.toggleNext {
+  background: #eee;
+  padding: 10px;
+  margin: 20px 0;
+}
+@media screen and (max-width: 991px) {
+  #carDetails h3.toggleNext {
+    margin: 0 0 1px;
+    font-size: 1.3em;
+  }
+}
+#carDetails h3.toggleNext span {
+  cursor: pointer;
+  line-height: 22px;
+  width: 30px;
+  text-align: center;
+  position: relative;
+  top: 6px;
+}
+
+#carDetails h3.toggleNext span.open {
+  display: none;
+}
+
+#carDetails dt {
+  float: left;
+  width: 60%;
+}
+#carDetails .flexslider#slider {
+  margin-bottom: 10px;
+}
+#carDetails .flexslider#carousel {
+  margin-bottom: 20px !important;
+}
+#carDetails .flexslider img {
+  height: auto;
+}
+#carDetails #carousel .slides li {
+  margin-right: 1px;
+}
+#carDetails h2.model_description {
+  background: #eee;
+  padding: 10px;
+  position: relative;
+}
+#carDetails h2.model_description .backlink {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  line-height: 50px;
+}
+#carDetails .price {
+  font-size: 35px;
+  font-weight: bold;
+  text-align: right;
+  margin: 20px 0 0 0;
+}
+@media screen and (max-width: 768px) {
+  #carDetails .price {
+    margin-top: -110px !important;
+  }
+}
+#carDetails .mwst {
+  display: block;
+  margin: 0 0 20px 0;
+  text-align: right;
+  font-size: 12px;
+}
+#carDetails .carNumber {
+  font-size: 12px;
+  white-space: nowrap;
+}
+#carDetails .buttons .btn {
+  margin-top: 10px;
+  width: 100%;
+  line-height: 30px;
+}
+#carDetails .buttons .btn .glyphicon {
+  float: left;
+  line-height: 30px;
+}
+@media screen and (max-width: 991px) {
+  #carDetails .mwst {
+    white-space: nowrap;
+  }
+  #carDetails #callNow {
+    margin-top: 40px;
+  }
+  #carDetails .buttons .text-muted {
+    display: block;
+    margin: 10px 0 40px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #carDetails #callNow {
+    margin-top: 40px;
+  }
+}
+
+.tx-cardealer-show.visible {
+  padding: 0;
+  margin: auto;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: rgba(255, 255, 255, 0.9);
+  -webkit-overflow-scrolling: touch;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+}
+.tx-cardealer-show.visible #carDetails {
+  background: #fff;
+}
+
+.tx-cardealer-show.visible:before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  z-index: -1;
+  background: url("../Img/logo.png") no-repeat center center !important;
+  -webkit-animation-name: zooming;
+  -webkit-animation-duration: 2.2s;
+  -webkit-transition-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: zooming;
+  -moz-animation-duration: 2.2s;
+  -moz-transition-timing-function: ease-in-out;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+}
+
+@-webkit-keyframes zooming {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@-moz-keyframes zooming {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+.quicksearch {
+  width: 100%;
+}
+.quicksearch .col-md-4 {
+  padding: 3px 5px;
+  margin: 0;
+}
+

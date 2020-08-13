@@ -1,0 +1,26 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:form.select id="{property}s"
+               class="form-control multiple ajax-filter"
+               title="{f:translate(key: 'tx_cardealer_pi1_filter.selectboxmultiple.title')}"
+               name="tx_cardealer_pi1[filter][{property}]"
+               multiple="1"
+               size="1">
+
+    <option class="firstOption" value="0" id="<f:translate key='tx_cardealer_domain_model_{property}' />"><f:translate key="tx_cardealer_domain_model_prependLabel.{property}" /> ({items.countAll})</option>
+    <f:for each="{items}" as="item" key="key">
+        <f:if condition='{item.uid}'>
+            <option
+                    value="{item.uid}"
+                    {f:if(condition:'{item.disabled}', then: 'disabled="{item.disabled}"')}
+            {f:if(condition: '{item.selected}', then: 'selected="{item.selected}"')}>
+            {item.title} ({item.counter})
+            </option>
+        </f:if>
+    </f:for>
+</f:form.select>
+
+</html>
+
+
+

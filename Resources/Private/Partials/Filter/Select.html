@@ -1,0 +1,36 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:form.select id="{property}s"
+               class="form-control ajax-filter"
+               title="{f:translate(key: 'tx_cardealer_pi1_filter.selectbox.title')}"
+               name="tx_cardealer_pi1[filter][{property}][]"
+               multiple="0"
+               size="1">
+
+    <option class="firstOption" value="0">
+        <f:translate key="tx_cardealer_domain_model_prependLabel.{property}" />
+        <f:if condition="{property} != 'price' && {property} != 'firstRegistration' && {property} != 'mileage'">
+            ({items.countAll})
+        </f:if>
+    </option>
+    <f:for each="{items}" as="item" key="key">
+        <f:if condition='{item.uid}'>
+            <option
+                    value="{item.uid}"
+                    {f:if(condition:'{item.disabled}', then: 'disabled="{item.disabled}"')}
+                    {f:if(condition: '{item.selected}', then: 'selected="{item.selected}"')}>
+            <f:if condition="{property} == 'price'">
+                <f:then>
+                    {item.title -> f:format.currency(thousandsSeparator: '.', currencySign: '€', prependCurrency: '1', decimals: '0')}
+                </f:then>
+                <f:else>
+                    {item.title}
+                </f:else>
+            </f:if>
+            ({item.counter})
+            </option>
+        </f:if>
+    </f:for>
+</f:form.select>
+
+</html>
+

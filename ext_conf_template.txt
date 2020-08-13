@@ -1,0 +1,29 @@
+
+# cat=Daten Import/enable/10; type=string; label=Bei Fehlern Email senden an: Im Falle eines Fehlers wird eine Benachrichtung an die angegebenen Email versendet.
+infoEmail = info@example.com
+
+# cat=Daten Import/enable/20; type=user[EXOTEC\Cardealer\Configuration\TextArea->render]; label=Konfiguration:JSON Array {"Hamburg": {"apiUser": "dlr_username", "apiPassword": "thePassword", "email": "hamburg@example.com"}}
+config {
+    # cat=Daten Import/enable/21; type=string; label=Username:mehrere kommasepariert
+    usernames =
+    # cat=Daten Import/enable/22; type=string; label=Passwort:mehrere kommasepariert
+    passwords =
+    # cat=Daten Import/enable/23; type=string; label=Standort:mehrere kommasepariert
+    locations =
+    # cat=Daten Import/enable/23; type=string; label=Standort Email:mehrere kommasepariert
+    emails =
+}
+
+# cat=Daten Import/enable/25; type=string; label=Fahrzeugklassen: Alle Fahrzeugklassen unter: https://services.mobile.de/refdata/classes
+carclasss = Car,Motorbike,VanUpTo7500
+
+# cat=Daten Import/enable/30; type=string; label=Kategorien: Alle Kategorien unter: https://services.mobile.de/refdata/categories
+categories = SmallCar,Limousine,EstateCar,Cabrio,SportsCar,OffRoad,Van,BoxTypeDeliveryVan,OtherCar
+
+# cat=Daten Import/enable/40; type=string; label=Fahrzeugarten: Alle Fahrzeugarten unter: https://services.mobile.de/refdata/usagetypes
+usagetypes = PRE_REGISTRATION,EMPLOYEES_CAR,CLASSIC,DEMONSTRATION
+
+# cat=Daten Import/enable/50; type=string; label=Features: Alle Features unter: https://services.mobile.de/refdata/classes/Car/features
+features = ABS,ALLOY_WHEELS,AUTOMATIC_RAIN_SENSOR,AUXILIARY_HEATING,BENDING_LIGHTS,BIODIESEL_SUITABLE,BLUETOOTH,CD_MULTICHANGER,CD_PLAYER,CENTRAL_LOCKING,CRUISE_CONTROL,DAYTIME_RUNNING_LIGHTS,DISABLED_ACCESSIBLE,E10_ENABLED,ELECTRIC_ADJUSTABLE_SEATS,ELECTRIC_EXTERIOR_MIRRORS,ELECTRIC_HEATED_SEATS,ELECTRIC_WINDOWS,ESP,EXPORT,FOUR_WHEEL_DRIVE,FRONT_FOG_LIGHTS,FULL_SERVICE_HISTORY,HANDS_FREE_PHONE_SYSTEM,HEAD_UP_DISPLAY,HU_AU_NEU,HYBRID_PLUGIN,IMMOBILIZER,ISOFIX,LIGHT_SENSOR,METALLIC,MP3_INTERFACE,MULTIFUNCTIONAL_WHEEL,NAVIGATION_SYSTEM,NONSMOKER_VEHICLE,ON_BOARD_COMPUTER,PANORAMIC_GLASS_ROOF,PARKING_SENSORS,PARTICULATE_FILTER_DIESEL,PERFORMANCE_HANDLING_SYSTEM,POWER_ASSISTED_STEERING,ROOF_RAILS,SKI_BAG,SPORT_PACKAGE,SPORT_SEATS,START_STOP_SYSTEM,SUNROOF,TAXI,TRACTION_CONTROL_SYSTEM,TRAILER_COUPLING,TUNER,VEGETABLEOILFUEL_SUITABLE,WARRANTY,XENON_HEADLIGHTS
+
+
