@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>Optionen</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <!-- start settings -->
+                    <settings.filterFieldsToShow>
+                        <TCEforms>
+                            <exclude>1</exclude>
+                            <label>Filter, die angezeigt werden sollen - es werden alle angezeigt, wenn kein Filterfeld ausgewählt wurde</label>
+                            <config>
+                                <type>select</type>
+                                <renderType>selectMultipleSideBySide</renderType>
+                                <enableMultiSelectFilterTextfield>true</enableMultiSelectFilterTextfield>
+                                <size>10</size>
+                                <items>
+                                    <numIndex index="0">
+                                        <numIndex index="0">Fahrzeugklasse (PKW, Motorrad, etc.)</numIndex>
+                                        <numIndex index="1">carclass</numIndex>
+                                    </numIndex>
+                                    <numIndex index="1">
+                                        <numIndex index="0">Gebrauchtfahrzeug, Neufahrzeug</numIndex>
+                                        <numIndex index="1">carcondition</numIndex>
+                                    </numIndex>
+                                    <numIndex index="2">
+                                        <numIndex index="0">Tageszulassung, Jahreswagen, Oldtimer, Vorführfahrzeug</numIndex>
+                                        <numIndex index="1">usagetype</numIndex>
+                                    </numIndex>
+                                    <numIndex index="3">
+                                        <numIndex index="0">Kategorie</numIndex>
+                                        <numIndex index="1">category</numIndex>
+                                    </numIndex>
+                                    <numIndex index="4">
+                                        <numIndex index="0">Hersteller</numIndex>
+                                        <numIndex index="1">make</numIndex>
+                                    </numIndex>
+                                    <numIndex index="5">
+                                        <numIndex index="0">Model</numIndex>
+                                        <numIndex index="1">model</numIndex>
+                                    </numIndex>
+                                    <numIndex index="6">
+                                        <numIndex index="0">Benzin, Diesel</numIndex>
+                                        <numIndex index="1">fuel</numIndex>
+                                    </numIndex>
+                                    <numIndex index="7">
+                                        <numIndex index="0">Schaltung</numIndex>
+                                        <numIndex index="1">gearbox</numIndex>
+                                    </numIndex>
+                                    <numIndex index="8">
+                                        <numIndex index="0">Standort</numIndex>
+                                        <numIndex index="1">location</numIndex>
+                                    </numIndex>
+                                    <numIndex index="9">
+                                        <numIndex index="0">Klimaanlage</numIndex>
+                                        <numIndex index="1">climatisation</numIndex>
+                                    </numIndex>
+                                    <numIndex index="10">
+                                        <numIndex index="0">Einparkhilfe</numIndex>
+                                        <numIndex index="1">parkingAssistant</numIndex>
+                                    </numIndex>
+                                    <numIndex index="11">
+                                        <numIndex index="0">Parkassistent</numIndex>
+                                        <numIndex index="1">parkingAssistant</numIndex>
+                                    </numIndex>
+                                    <numIndex index="12">
+                                        <numIndex index="0">Innenausstattung</numIndex>
+                                        <numIndex index="1">interiorType</numIndex>
+                                    </numIndex>
+                                    <numIndex index="13">
+                                        <numIndex index="0">Innenraumfarbe</numIndex>
+                                        <numIndex index="1">interiorColor</numIndex>
+                                    </numIndex>
+                                    <numIndex index="14">
+                                        <numIndex index="0">Fahrzeugfarbe</numIndex>
+                                        <numIndex index="1">exteriorColor</numIndex>
+                                    </numIndex>
+                                    <numIndex index="15">
+                                        <numIndex index="0">Emissionssticker</numIndex>
+                                        <numIndex index="1">emissionSticker</numIndex>
+                                    </numIndex>
+                                    <numIndex index="16">
+                                        <numIndex index="0">Emissionsklasse</numIndex>
+                                        <numIndex index="1">emissionClass</numIndex>
+                                    </numIndex>
+                                    <numIndex index="17">
+                                        <numIndex index="0">Sonderausstattung</numIndex>
+                                        <numIndex index="1">feature</numIndex>
+                                    </numIndex>
+                                    <numIndex index="18">
+                                        <numIndex index="0">Anzahl der Türen</numIndex>
+                                        <numIndex index="1">doorCount</numIndex>
+                                    </numIndex>
+                                    <numIndex index="19">
+                                        <numIndex index="0">Länderversion</numIndex>
+                                        <numIndex index="1">countryVersion</numIndex>
+                                    </numIndex>
+                                    <numIndex index="20">
+                                        <numIndex index="0">Preis</numIndex>
+                                        <numIndex index="1">price</numIndex>
+                                    </numIndex>
+                                    <numIndex index="21">
+                                        <numIndex index="0">Erstzulassung</numIndex>
+                                        <numIndex index="1">firstRegistration</numIndex>
+                                    </numIndex>
+                                    <numIndex index="22">
+                                        <numIndex index="0">Airbag</numIndex>
+                                        <numIndex index="1">airbag</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </settings.filterFieldsToShow>
+                    <!-- end of settings -->
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

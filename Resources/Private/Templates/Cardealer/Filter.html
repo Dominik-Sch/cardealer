@@ -1,4 +1,6 @@
 <html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+{namespace custom=EXOTEC\Cardealer\ViewHelpers}
+
 	<f:layout name="Default" />
 	<f:section name="content">
 
@@ -18,9 +20,22 @@
                 <f:render partial="Filter/Sorting" arguments="{args:args}" />
 
                 <!-- Formfields -->
-                <f:for each="{fields}" as="items" key="property">
-                    <f:render partial="Filter/{items.partialName}" arguments="{args:args, items:'{items}', property:'{property}'}" />
-                </f:for>
+                <f:if condition="{settings.filterFieldsToShow}">
+                    <f:then>
+                        <f:for each="{fields}" as="items" key="property">
+                            <f:for each="{custom:explode(string:settings.filterFieldsToShow)}" as="flexformfilter">
+                                <f:if condition="{flexformfilter} == {property}">
+                                    <f:render partial="Filter/{items.partialName}" arguments="{args:args, items:'{items}', property:'{property}'}" />
+                                </f:if>
+                            </f:for>
+                        </f:for>
+                    </f:then>
+                    <f:else>
+                        <f:for each="{fields}" as="items" key="property">
+                            <f:render partial="Filter/{items.partialName}" arguments="{args:args, items:'{items}', property:'{property}'}" />
+                        </f:for>
+                    </f:else>
+                </f:if>
 
                 <br />
 

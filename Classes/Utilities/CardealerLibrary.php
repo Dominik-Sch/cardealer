@@ -501,12 +501,21 @@ class CardealerLibrary  implements \TYPO3\CMS\Core\SingletonInterface
      *
      * @param array $args
      * @param array $settings
+     * @param array $allGetArgs
      * @return mixed
      */
-    public function buildFilterFluidVars ($args, $settings)
+    public function buildFilterFluidVars ($args, $settings, $allGetArgs = [])
     {
         // search form fields
         $fields = $settings['filterFields'];
+
+        if ($allGetArgs['filter']) {
+            foreach($fields as $key => $value) {
+                if(!array_key_exists($key, $allGetArgs['filter'])) {
+                    unset($fields[$key]);
+                }
+            }
+        }
 
         foreach ($fields as $property => $partialName) {
             switch ($property) {

@@ -21,6 +21,9 @@ body.no-scroll {
   position: relative;
   z-index: 99;
 }
+.tx-cardealer select {
+    height: 130px;
+}
 
 .tx-cardealer-requestform,
 .tx-cardealer-tipafriend,

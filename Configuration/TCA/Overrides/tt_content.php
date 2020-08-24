@@ -17,3 +17,9 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['cardealer_se
     'cardealer_selection',
     'FILE:EXT:cardealer/Configuration/FlexForms/Selection.xml'
 );
+
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['cardealer_filter'] = 'pi_flexform';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+    'cardealer_filter',
+    'FILE:EXT:cardealer/Configuration/FlexForms/Filter.xml'
+);

@@ -262,15 +262,28 @@ class CardealerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
      */
     public function listAction ()
     {
-
         // POST/GET Params
         $_GP = GeneralUtility::_GP('tx_cardealer_pi1');
         $args = $this->getDefaultArguments($_GP);
 
-        // if an cache identifier in url available
+        // if an cache identifier in url available (paginator or backlink)
         if($_GP['identifier']) {
             $listArgs = $this->cacheInstance->get($_GP['identifier']);
-            $args['filter'] = $listArgs['args']['filter'];
+            if ($this->settings['filterFieldsToShow']) {
+                $flexFormFilterFields = [];
+                foreach(explode(',',$this->settings['filterFieldsToShow']) as $field) {
+                    $flexFormFilterFields[$field] = [0 => 0];
+                }
+                $args['filter'] = $flexFormFilterFields;
+            } else if ($this->settings['filterFieldsToShow']) {
+                $flexFormFilterFields = [];
+                foreach(explode(',',$this->settings['filterFieldsToShow']) as $field) {
+                    $flexFormFilterFields[$field] = [0 => 0];
+                }
+                $args['filter'] = $flexFormFilterFields;
+            } else {
+                $args['filter'] = $listArgs['args']['filter'];
+            }
         }
 
         // prepare args for caching
@@ -358,10 +371,8 @@ class CardealerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
      */
     public function filterAction ()
     {
-
         $template = GeneralUtility::trimExplode('/', $this->settings['filter']['template']);
         $templateName = GeneralUtility::trimExplode('.',end($template));
-
 
         // POST/GET Params // getArguments() do not work because it returns cached form values
         $_GP = GeneralUtility::_GP('tx_cardealer_pi1');
@@ -370,18 +381,30 @@ class CardealerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
         // if an cache identifier in url available (paginator or backlink)
         if($_GP['identifier']) {
             $listArgs = $this->cacheInstance->get($_GP['identifier']);
-            $args['filter'] = $listArgs['args']['filter'];
+            if ($this->settings['filterFieldsToShow']) {
+                $flexFormFilterFields = [];
+                foreach(explode(',',$this->settings['filterFieldsToShow']) as $field) {
+                    $flexFormFilterFields[$field] = [0 => '0'];
+                }
+                $args['filter'] = $flexFormFilterFields;
+            } else if ($this->settings['filterFieldsToShow']) {
+                $flexFormFilterFields = [];
+                foreach(explode(',',$this->settings['filterFieldsToShow']) as $field) {
+                    $flexFormFilterFields[$field] = [0 => '0'];
+                }
+                $args['filter'] = $flexFormFilterFields;
+            } else {
+                $args['filter'] = $listArgs['args']['filter'];
+            }
         }
 
         // prepare args for caching
         // make filter array entries unique
-        #DebuggerUtility::var_dump($args['filter']);
         if($args['filter']) {
             foreach ($args['filter'] as $key => $value) {
                 if($value) {
                     $args['filter'][$key]= array_unique($value);
                 }
-
             }
         }
         // sorted arguments are important!!!
@@ -395,10 +418,11 @@ class CardealerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
         $cache = $this->cacheInstance->get($identifier);
 
         // if no cache available, get data from mysql, build filterForm and save the form into the cache
+        $allGetArgs = $this->request->getArguments();
         if ($cache === false) {
 
             // render the filter view content
-            $filterForm = $this->filterContentAction($args,$templateName[0]);
+            $filterForm = $this->filterContentAction($args,$templateName[0], $allGetArgs);
 
             // add the whole searchform to cache
             $lifetime = strtotime('+1 day', time());
@@ -416,9 +440,10 @@ class CardealerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
     /**
      * @param array $args
      * @param string $templateFile
+     * @param array $allGetArgs
      * @return string
      */
-    protected function filterContentAction ($args,$templateName="Filter"): string
+    protected function filterContentAction ($args,$templateName="Filter", $allGetArgs = []): string
     {
 
         if(!$templateName) {
@@ -429,7 +454,7 @@ class CardealerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
         $args['page'] = $page = $this->library->pageValue($args['limit'][0], $args['page'], $cars['count']);
 
         // build fluid vars
-        $fieldVars = $this->library->buildFilterFluidVars($args, $this->settings);
+        $fieldVars = $this->library->buildFilterFluidVars($args, $this->settings, $allGetArgs);
         $variables = array(
             'args' => $args,
             'settings' => $this->settings,

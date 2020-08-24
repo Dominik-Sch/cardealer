@@ -29,7 +29,7 @@ plugin.tx_cardealer_pi1 {
             tipafriend_form = 0
         }
         # cat=plugin.tx_cardealer_pi1/enable/a; type=string; label=Erstzulassung: Werte für die Suche
-        firstRegistrations = 2017,2016,2015,2014,2013,2012,2011,2010,2009,2008,2007,2006,2005
+        firstRegistrations = 2020,2019,2018,2017,2016,2015,2014,2013,2012,2011,2010,2009,2008,2007,2006,2005
         # cat=plugin.tx_cardealer_pi1/enable/b; type=string; label=Preise: Werte für die Suche
         prices = 5000,7500,10000,12500,15000,20000,25000,50000
         # cat=plugin.tx_cardealer_pi1/enable/c; type=string; label=Kilometer: Werte für die Suche
