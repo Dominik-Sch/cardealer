@@ -1,44 +1,35 @@
-
-.text-center {
-    text-align: center;
+.tx-cardealer .text-center, .tx-cardealer ul.paginator {
+  text-align: center;
 }
-
-.tx- cardealer ul.paginator,
-.tx-cardealer .text-center {
-    text-align: center
-}
-
 .tx-cardealer .firstOption {
-    color:-webkit-link;
-    text-align: center;
-    text-transform: uppercase;
+  color: -webkit-link;
+  text-align: center;
+  text-transform: uppercase;
 }
-
 .tx-cardealer .disabled {
-    color: graytext;
+  color: graytext;
 }
 .tx-cardealer ul.paginator {
-    margin: 20px 0;
-    padding: 0;
-    text-align: center;
+  margin: 20px 0;
+  padding: 0;
+  text-align: center;
 }
 .tx-cardealer ul.paginator li {
-    display: inline-block;
-    margin-right: 10px
+  display: inline-block;
+  margin-right: 10px;
 }
 
 .tx-cardealer-list {
-    width: 100%;
+  width: 100%;
 }
-.tx-cardealer-list th,
-.tx-cardealer-list td {
-    padding: 5px;
+.tx-cardealer-list th, .tx-cardealer-list td {
+  padding: 5px;
 }
-
 .tx-cardealer-list th {
-    background: #ddd;
+  background: #ddd;
+}
+.tx-cardealer-list tr:nth-child(odd) {
+  background: #eee;
 }
 
-.tx-cardealer-list tr:nth-child(odd) {
-    background: #eee
-}
+/*# sourceMappingURL=tx-cardealer-basic.css.map */

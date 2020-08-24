@@ -13,28 +13,28 @@ ul {
 }
 
 dt, dd {
-    line-height: 20px;
+  line-height: 20px;
 }
 
 dt {
-    float: left;
-    width: 50%;
-    font-weight: bold;
+  float: left;
+  width: 50%;
+  font-weight: bold;
 }
 
-.toggle-filter{
-    display: none
+.toggle-filter {
+  display: none;
 }
 
 .ellipsis {
-    width: 50% !important;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    width: 100%;
-    display: inline-block;
-    margin: 0;
-    line-height: 1;
+  width: 50% !important;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  display: inline-block;
+  margin: 0;
+  line-height: 1;
 }
 
 .effClassListImg {
@@ -45,6 +45,9 @@ dt {
 #descriptionHeader {
   margin-bottom: 0;
 }
+
 .price {
   margin-top: 0;
 }
+
+/*# sourceMappingURL=tx-cardealer-print.css.map */

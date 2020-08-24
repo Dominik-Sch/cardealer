@@ -257,28 +257,28 @@ Schau Dir dieses tolle Auto mal an:
         }
         # filterFields array(fieldname => Partial)
         filterFields {
-            carclass = SelectMultiple
-            carcondition = SelectMultiple
-            usagetype = SelectMultiple
-            category = SelectMultiple
-            make = SelectMultiple
-            model = SelectMultiple
-            fuel = SelectMultiple
-            gearbox = SelectMultiple
-            location = SelectMultiple
-            climatisation = SelectMultiple
-            parkingAssistant = SelectMultiple
-            interiorType = SelectMultiple
-            interiorColor = SelectMultiple
-            exteriorColor = SelectMultiple
-            emissionSticker = SelectMultiple
-            emissionClass = SelectMultiple
-            feature = SelectMultiple
-            doorCount = SelectMultiple
-            countryVersion = SelectMultiple
-            price = SelectMultiple
-            firstRegistration = SelectMultiple
-            airbag = SelectMultiple
+            carclass = Checkboxes
+            carcondition = Checkboxes
+            usagetype = Checkboxes
+            category = Checkboxes
+            make = Checkboxes
+            model = Checkboxes
+            fuel = Checkboxes
+            gearbox = Checkboxes
+            location = Checkboxes
+            climatisation = Checkboxes
+            parkingAssistant = Checkboxes
+            interiorType = Checkboxes
+            interiorColor = Checkboxes
+            exteriorColor = Checkboxes
+            emissionSticker = Checkboxes
+            emissionClass = Checkboxes
+            feature = Checkboxes
+            doorCount = Checkboxes
+            countryVersion = Checkboxes
+            price = Checkboxes
+            firstRegistration = Checkboxes
+            airbag = Checkboxes
         }
     }
 }

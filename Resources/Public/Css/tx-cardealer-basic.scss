@@ -1,0 +1,34 @@
+.tx-cardealer {
+  .text-center, ul.paginator {
+    text-align: center
+  }
+  .firstOption {
+    color:-webkit-link;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .disabled {
+    color: graytext;
+  }
+  ul.paginator {
+    margin: 20px 0;
+    padding: 0;
+    text-align: center;
+    li {
+      display: inline-block;
+      margin-right: 10px
+    }
+  }
+}
+.tx-cardealer-list {
+  width: 100%;
+  th, td {
+    padding: 5px;
+  }
+  th {
+    background: #ddd;
+  }
+  tr:nth-child(odd) {
+    background: #eee
+  }
+}

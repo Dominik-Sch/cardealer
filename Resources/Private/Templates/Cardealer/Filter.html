@@ -10,14 +10,19 @@
             <button class="btn btn-primary btn-block toggle-filter">Filter</button>
             <f:form class="default-search d-none d-lg-block d-xl-block" name="filter" method="post" addQueryString="1" addQueryStringMethod="GET" >
 
-                <f:link.action class="btn btn-danger ajaxLink reset" pageUid="{settings.pid.list}"
-                               controller="Standard"
-                               action="list"
-                               arguments="{page: '1', sortBy: 'price', sortOrder: {0: 'ASC'}, limit: {0: '10'}, identifier:'reset'}">
-                    <span class="glyphicon glyphicon-remove"></span>
-                    <f:translate key="tx_cardealer_pi1_filter.reset" />
-                </f:link.action>
-                <f:render partial="Filter/Sorting" arguments="{args:args}" />
+                <f:comment>
+                    <f:link.action class="btn btn-danger ajaxLink reset" pageUid="{settings.pid.list}"
+                                   controller="Standard"
+                                   action="list"
+                                   arguments="{page: '1', sortBy: 'price', sortOrder: {0: 'ASC'}, limit: {0: '10'}, identifier:'reset'}">
+                        <span class="glyphicon glyphicon-remove"></span>
+                        <f:translate key="tx_cardealer_pi1_filter.reset" />
+                    </f:link.action>
+                </f:comment>
+
+                <f:if condition="{settings.sort}">
+                    <f:render partial="Filter/Sorting" arguments="{args:args}" />
+                </f:if>
 
                 <!-- Formfields -->
                 <f:if condition="{settings.filterFieldsToShow}">
