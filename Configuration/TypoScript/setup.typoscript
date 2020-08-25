@@ -1,0 +1,174 @@
+page.includeCSS {
+    cardealer_basics = EXT:cardealer/Resources/Public/Css/tx-cardealer-basic.css
+    cardealer_styles = EXT:cardealer/Resources/Public/Css/tx-cardealer-styles.css
+}
+
+page.includeJSFooter {
+    cardealer = EXT:cardealer/Resources/Public/Js/tx-cardealer.js
+}
+
+tt_content.stdWrap.innerWrap.cObject = CASE
+tt_content.stdWrap.innerWrap.cObject {
+    key.field = layout
+    98 = TEXT
+    98.value = <div class="tx-cardealer-requestform tx-cardealer-form">|</div>
+    99 = TEXT
+    99.value = <div class="tx-cardealer-tipafriend tx-cardealer-form">|</div>
+}
+
+
+plugin.tx_cardealer_pi1 {
+    lib {
+        # calculator
+        math = TEXT
+        math {
+            current = 1
+            prioriCalc = 1
+        }
+    }
+    view {
+        templateRootPaths{
+            5 = EXT:cardealer/Resources/Private/Templates/
+            10 = {$plugin.tx_cardealer_pi1.view.templateRootPath}
+        }
+        partialRootPaths {
+            5 = EXT:cardealer/Resources/Private/Partials/
+            10 = {$plugin.tx_cardealer_pi1.view.partialRootPath}
+        }
+        layoutRootPaths {
+            5 = EXT:cardealer/Resources/Private/Layouts/
+            10 = {$plugin.tx_cardealer_pi1.view.layoutRootPath}
+        }
+
+        pluginNamespace = tx_cardealer_pi1
+    }
+    persistence {
+        storagePid = {$plugin.tx_cardealer_pi1.persistence.storagePid}
+        #recursive = 1
+    }
+    features {
+        skipDefaultArguments = 1
+        # if set to 1, the enable fields are ignored in BE context
+        ignoreAllEnableFieldsInBe = 0
+        # Should be on by default, but can be disabled if all action in the plugin are uncached
+        requireCHashArgumentForActionArguments = 0
+    }
+    mvc {
+        callDefaultActionIfActionCantBeResolved = 1
+    }
+    settings {
+        prices = {$plugin.tx_cardealer_pi1.settings.prices}
+        firstRegistrations = {$plugin.tx_cardealer_pi1.settings.firstRegistrations}
+        mileages = {$plugin.tx_cardealer_pi1.settings.mileages}
+        replace = {$plugin.tx_cardealer_pi1.settings.replace}
+        replaceBy = {$plugin.tx_cardealer_pi1.settings.replaceBy}
+        ajax_detail_view = {$plugin.tx_cardealer_pi1.settings.ajax_detail_view}
+        icons_color = {$plugin.tx_cardealer_pi1.settings.icons_color}
+        pid {
+            list = {$plugin.tx_cardealer_pi1.settings.pid.list}
+            details = {$plugin.tx_cardealer_pi1.settings.pid.details}
+        }
+        uid {
+            request_form = {$plugin.tx_cardealer_pi1.settings.uid.request_form}
+            tipafriend_form = {$plugin.tx_cardealer_pi1.settings.uid.tipafriend_form}
+        }
+        # filterFields array(fieldname => Partial)
+        filterFields {
+            carclass = Checkboxes
+            carcondition = Checkboxes
+            usagetype = Checkboxes
+            category = Checkboxes
+            make = Checkboxes
+            model = Checkboxes
+            fuel = Checkboxes
+            gearbox = Checkboxes
+            location = Checkboxes
+            climatisation = Checkboxes
+            parkingAssistant = Checkboxes
+            interiorType = Checkboxes
+            interiorColor = Checkboxes
+            exteriorColor = Checkboxes
+            emissionSticker = Checkboxes
+            emissionClass = Checkboxes
+            feature = Checkboxes
+            doorCount = Checkboxes
+            countryVersion = Checkboxes
+            price = Checkboxes
+            firstRegistration = Checkboxes
+            airbag = Checkboxes
+        }
+    }
+}
+
+plugin.tx_cardealer_list < plugin.tx_cardealer_pi1
+plugin.tx_cardealer_show < plugin.tx_cardealer_pi1
+plugin.tx_cardealer_filter < plugin.tx_cardealer_pi1
+plugin.tx_cardealer_newbees < plugin.tx_cardealer_pi1
+plugin.tx_cardealer_random < plugin.tx_cardealer_pi1
+plugin.tx_cardealer_selection < plugin.tx_cardealer_pi1
+
+plugin.tx_cardealer_pi1_ajax < plugin.tx_cardealer_pi1
+plugin.tx_cardealer_pi1_ajax_details < plugin.tx_cardealer_pi1
+
+tx_cardealer_pi1_ajax = PAGE
+tx_cardealer_pi1_ajax {
+    features {
+        skipDefaultArguments = 1
+    }
+
+    typeNum = 4711
+    config {
+        disableAllHeaderCode = 1
+        xhtml_cleaning = 0
+        admPanel = 0
+        additionalHeaders = Content-type: text/plain
+        no_cache = 1
+    }
+
+    10 = USER
+    10 {
+        userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+        extensionName = Cardealer
+        pluginName = Pi1
+        vendorName = EXOTEC
+        controller = Cardealer
+        switchableControllerActions {
+            Cardealer {
+                1 = show
+                2 = list
+                3 = filter
+            }
+        }
+        #settings < plugin.tx_cardealer_pi1.settings
+    }
+}
+
+tx_cardealer_pi1_ajax_details = PAGE
+tx_cardealer_pi1_ajax_details {
+    typeNum = 1508
+    config {
+        disableAllHeaderCode = 1
+        xhtml_cleaning = 0
+        admPanel = 0
+        additionalHeaders = Content-type: text/plain
+        no_cache = 1
+    }
+
+    10 = CONTENT
+    10 {
+        table = tt_content
+        select {
+            pidInList = {$plugin.tx_cardealer_pi1.settings.pid.details}
+            orderBy = sorting
+        }
+        renderObj = < tt_content
+        slide = 0
+        slide {
+            collect = 0
+            collectReverse = 0
+            collectFuzzy = 0
+        }
+        wrap =
+        stdWrap =
+    }
+}

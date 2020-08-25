@@ -4,52 +4,28 @@
 
 <div class="tx-cardealer-list-item row">
 
-    <div class="col col-sm-12">
-        <f:format.raw><custom:newcar value='{car.creationDate}' /></f:format.raw>
-        <h2>
-            <f:if condition="{settings.ajax_detail_view}">
-                <f:then>
-                    <f:link.action style="display:none !important;" class="ajaxLink show" controller="Standard" action="show" pageUid="{settings.pid.details}" additionalParams="{type: '1508'}" arguments="{car: '{car.uid}', make: '{car.make.0.uid}', identifier: '{identifier}'}" >ajax call</f:link.action>
 
-                    <f:link.action onclick="triggerAjaxClick(this); return false;" controller="Standard" action="show" pageUid="{settings.pid.details}" arguments="{car: '{car.uid}', make: '{car.make.0.uid}', identifier: '{identifier}'}" >
-                        {car.make.0.title}
-                        <f:format.raw>{car.modelDescription}</f:format.raw>
-                    </f:link.action>
-                </f:then>
-                <f:else>
+    <div class="col-md-12">
+        <f:link.action controller="Standard" action="show" pageUid="{settings.pid.details}" arguments="{car: '{car.uid}', make: '{car.make.0.uid}', identifier: '{identifier}'}" >
+            {car.make.0.title}
+            <f:format.raw>{car.modelDescription}</f:format.raw>
+        </f:link.action>
+    </div>
+
+    <div class="col-md-2">
+
+        <div class="listImg">
+            <f:for each="{car.images}" as="image" iteration="_iter">
+                <f:if condition="{_iter.isFirst}">
                     <f:link.action controller="Standard" action="show" pageUid="{settings.pid.details}" arguments="{car: '{car.uid}', make: '{car.make.0.uid}', identifier: '{identifier}'}" >
-                        {car.make.0.title}
-                        <f:format.raw>{car.modelDescription}</f:format.raw>
+                        <f:image src="{image.uid}" treatIdAsReference="1" maxWidth="300"/>
                     </f:link.action>
-                </f:else>
-            </f:if>
-        </h2>
-    </div>
-
-
-    <div class="col-md-2 col-sm-12 listImg">
-
-        <f:for each="{car.images}" as="image" iteration="_iter">
-            <f:if condition="{_iter.isFirst}">
-                <f:if condition="{settings.ajax_detail_view}">
-                    <f:then>
-                        <f:link.action style="display:none !important;" class="ajaxLink show" controller="Standard" action="show" pageUid="{settings.pid.details}" additionalParams="{type: '1508'}" arguments="{car: '{car.uid}', make: '{car.make.0.uid}', identifier: '{identifier}'}" >ajax call</f:link.action>
-                        <f:link.action onclick="triggerAjaxClick(this); return false;" controller="Standard" action="show" pageUid="{settings.pid.details}" arguments="{car: '{car.uid}', make: '{car.make.0.uid}', identifier: '{identifier}'}" >
-                            <f:image src="{image.uid}" treatIdAsReference="1" maxWidth="300"/>
-                        </f:link.action>
-                    </f:then>
-                    <f:else>
-                        <f:link.action controller="Standard" action="show" pageUid="{settings.pid.details}" arguments="{car: '{car.uid}', make: '{car.make.0.uid}', identifier: '{identifier}'}" >
-                            <f:image src="{image.uid}" treatIdAsReference="1" maxWidth="300"/>
-                        </f:link.action>
-                    </f:else>
                 </f:if>
-            </f:if>
-        </f:for>
-
+            </f:for>
+        </div>
     </div>
 
-    <div class="col-md-3 col-sm-6 category">
+    <div class="col-md-3 category">
         <f:for each="{car.carcondition}" as="value" iteration="_iter">
             <f:if condition="{_iter.isFirst}">
                 <f:format.raw>{value.title}</f:format.raw>
@@ -70,24 +46,24 @@
         </f:if>
     </div>
 
-    <div class="col-md-2 col-sm-6 firstReg">
+    <div class="col-md-2 firstReg">
         EZ: <f:format.date format="m/Y">{car.firstRegistration}</f:format.date><br />
         {car.mileage} km<br />
         {car.power} kW (<f:format.number decimals="0" decimalSeparator="." thousandsSeparator=","><f:cObject typoscriptObjectPath="plugin.tx_cardealer_pi1.lib.math" data="{car.power} / 0.735"></f:cObject></f:format.number> PS)<br />
 
     </div>
 
-    <div class="col-md-2 col-sm-12 text-nowrap text-truncate">
+    <div class="col-md-2 text-nowrap text-truncate">
         <f:for each="{car.fuel}" as="value" iteration="_iter">
             <f:if condition="{_iter.isFirst}">
                 <f:format.raw>{value.title}</f:format.raw>
             </f:if>
-        </f:for><br />
+        </f:for>
         <f:for each="{car.gearbox}" as="value" iteration="_iter">
             <f:if condition="{_iter.isFirst}">
                 <f:format.raw>{value.title}</f:format.raw>
             </f:if>
-        </f:for><br />
+        </f:for>
         <f:for each="{car.climatisation}" as="value" iteration="_iter">
             <f:if condition="{_iter.isFirst}">
                 <f:format.raw>{value.title}</f:format.raw>
@@ -95,7 +71,7 @@
         </f:for>
     </div>
 
-    <div class="col-md-3 col-sm-12 price">
+    <div class="col-md-3 price">
         <h4 style="margin:0;">
             &euro; <f:format.number decimals="0" decimalSeparator="," thousandsSeparator=".">{car.price}</f:format.number>
         </h4>
@@ -111,9 +87,8 @@
         </i>
     </div>
 
-
     <f:if condition="{car.efficiencyClass}">
-        <div class="col-sm-12 pt-2">
+        <div class="col-md-12">
             <f:format.number decimals="1" decimalSeparator=".">{car.combinedConsumption}</f:format.number> L/100km (komb.), {car.co2Emission} g/km (komb.)
         </div>
     </f:if>

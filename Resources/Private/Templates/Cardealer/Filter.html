@@ -10,19 +10,13 @@
             <button class="btn btn-primary btn-block toggle-filter">Filter</button>
             <f:form class="default-search d-none d-lg-block d-xl-block" name="filter" method="post" addQueryString="1" addQueryStringMethod="GET" >
 
-                <f:comment>
-                    <f:link.action class="btn btn-danger ajaxLink reset" pageUid="{settings.pid.list}"
-                                   controller="Standard"
-                                   action="list"
-                                   arguments="{page: '1', sortBy: 'price', sortOrder: {0: 'ASC'}, limit: {0: '10'}, identifier:'reset'}">
-                        <span class="glyphicon glyphicon-remove"></span>
-                        <f:translate key="tx_cardealer_pi1_filter.reset" />
-                    </f:link.action>
-                </f:comment>
-
                 <f:if condition="{settings.sort}">
                     <f:render partial="Filter/Sorting" arguments="{args:args}" />
                 </f:if>
+                <label class="apply-selection apply-selection-top">
+                    <input type="checkbox" class="ajax-filter" />
+                    <span class="check-mark"></span>Auswahl übernehmen
+                </label>
 
                 <!-- Formfields -->
                 <f:if condition="{settings.filterFieldsToShow}">
@@ -42,14 +36,34 @@
                     </f:else>
                 </f:if>
 
-                <br />
+                <label class="apply-selection apply-selection-bottom">
+                    <input type="checkbox" class="ajax-filter" />
+                    <span class="check-mark"></span>Auswahl übernehmen
+                </label>
 
-                <select name="tx_cardealer_pi1[limit][]" class="limit form-control input-sm sorting ajax-filter">
-                    <option value="10" {f:if(condition: '{args.limit.0} == 10', then: 'selected')}>10</option>
-                    <option value="20" {f:if(condition: '{args.limit.0} == 20', then: 'selected')}>20</option>
-                    <option value="50" {f:if(condition: '{args.limit.0} == 50', then: 'selected')}>50</option>
-                </select>
-                <f:translate key="tx_cardealer_pi1_filter.limitperpage.title" />
+                <div class="limitperpage">
+                    <select name="tx_cardealer_pi1[limit][]" class="limit form-control input-sm sorting ajax-filter">
+                        <option value="10" {f:if(condition: '{args.limit.0} == 10', then: 'selected')}>10</option>
+                        <option value="20" {f:if(condition: '{args.limit.0} == 20', then: 'selected')}>20</option>
+                        <option value="50" {f:if(condition: '{args.limit.0} == 50', then: 'selected')}>50</option>
+                    </select>
+                    <f:translate key="tx_cardealer_pi1_filter.limitperpage.title" />
+                </div>
+
+                <div class="carcount-wrap">
+                    <div class="clearSelection">
+                        <span class="icon-x">
+                            <f:link.action class="btn btn-danger reset" pageUid="{settings.pid.list}"
+                                           controller="Standard"
+                                           action="filter"
+                                           arguments="{page: '1', sortBy: 'price', sortOrder: {0: 'ASC'}, limit: {0: '10'}, identifier:'reset'}">
+                            <f:translate key="tx_cardealer_pi1_filter.reset" />
+                        </f:link.action>
+                        </span>
+                    </div>
+                    <div class="carcount">{count} Treffer</div>
+                </div>
+
             </f:form>
         </div>
 

@@ -12,16 +12,6 @@ $(function() {
         // $('.reset').trigger('click');
     }
 
-    // add the show html div after list
-    if ( $('.tx-cardealer-list').length > 0 ) {
-        // add div only once if more slicks as one on the page found
-        $.each($('.tx-cardealer-list'), function (i) {
-            if(i == 0) {
-                $(this).parent().after('<div class="tx-cardealer-show" />');
-            }
-        });
-    }
-
     // setting intital history state on slick plugin page
     if ( $('.cardealer-slick').length > 0 ) {
         history.pushState({url: location.href}, 'Default slick state', location.href);
@@ -191,7 +181,6 @@ $(document).on("click", ".ajaxLink", function(e){
         e.preventDefault();
         getData(url, 'show');
     }
-
 });
 
 

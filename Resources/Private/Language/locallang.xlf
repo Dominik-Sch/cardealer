@@ -445,7 +445,7 @@
                 <source>Treffer</source>
             </trans-unit>
             <trans-unit id="tx_cardealer_pi1_show.back.label" space="preserve">
-                <source>Zurück</source>
+                <source>Zurück zur Übersicht</source>
             </trans-unit>
 
             <trans-unit id="tx_cardealer_pi1_label.ASC">

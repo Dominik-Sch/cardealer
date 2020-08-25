@@ -22,16 +22,16 @@
         </div>
 
         <!--Entries-->
-        <f:for each="{cars.entries}" as="car">
-            <f:render partial="List/Item"
-                      arguments="{car:car,args:'{args}', settings:'{settings}', identifier:'{identifier}'}"/>
-        </f:for>
-
-
+        <div class="row">
+            <f:for each="{cars.entries}" as="car">
+                <f:render partial="List/Item"
+                          arguments="{car:car,args:'{args}', settings:'{settings}', identifier:'{identifier}'}"/>
+            </f:for>
+        </div>
         <!--Paginator-->
-        <div class="paginator-bottom">
+        <div class="paginator">
             <f:render partial="Widgets/Pagination/Pagination"
-                      arguments="{paginator:paginator, args:args, identifier:'{identifier}'}"/>
+                      arguments="{paginator:paginator, args:args, identifier:'{identifier}', settings: '{settings}'}"/>
         </div>
     </div>
 

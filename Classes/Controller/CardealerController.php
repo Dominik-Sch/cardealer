@@ -284,8 +284,13 @@ class CardealerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
             } else {
                 $args['filter'] = $listArgs['args']['filter'];
             }
+        } else if ($this->settings['filterFieldsToShow']) {
+            $flexFormFilterFields = [];
+            foreach(explode(',',$this->settings['filterFieldsToShow']) as $field) {
+                $flexFormFilterFields[$field] = [0 => 0];
+            }
+            $args['filter'] = $flexFormFilterFields;
         }
-
         // prepare args for caching
         // make filter array entries unique
         if($args['filter']) {
@@ -481,25 +486,16 @@ class CardealerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
 
         $extbaseFrameworkConfiguration = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
 
-        $layoutRootPath = \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName(end($extbaseFrameworkConfiguration['view']['layoutRootPaths']));
-        $tempView->setLayoutRootPaths(array($layoutRootPath));
+        $tempView->setLayoutRootPaths($extbaseFrameworkConfiguration['view']['layoutRootPaths']);
 
-        $partialRootPath = \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName(end($extbaseFrameworkConfiguration['view']['partialRootPaths']));
-        $tempView->setPartialRootPaths(array($partialRootPath));
-
-
-
-        $templateRootPath = GeneralUtility::getFileAbsFileName(end($extbaseFrameworkConfiguration['view']['templateRootPaths']));
-        $templatePathAndFilename = $templateRootPath . $controllerName . '/' . $templateName . '.html';
-
-        if( !file_exists($templatePathAndFilename) ) {
-            $templateRootPath = GeneralUtility::getFileAbsFileName($extbaseFrameworkConfiguration['view']['templateRootPaths'][0]);
+        $tempView->setPartialRootPaths($extbaseFrameworkConfiguration['view']['partialRootPaths']);
+        $templatePathAndFilename = '';
+        foreach(array_reverse($extbaseFrameworkConfiguration['view']['templateRootPaths']) as $templatePath) {
+            $templateRootPath = GeneralUtility::getFileAbsFileName($templatePath);
             $templatePathAndFilename = $templateRootPath . $controllerName . '/' . $templateName . '.html';
-        }
-
-        // Print Version
-        if(GeneralUtility::_GP('type')=='98') {
-            $templatePathAndFilename = $templateRootPath . $controllerName . '/' . $templateName . '.print';
+            if( file_exists($templatePathAndFilename) ) {
+                break;
+            }
         }
 
         $tempView->setTemplatePathAndFilename($templatePathAndFilename);
@@ -513,7 +509,6 @@ class CardealerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
 
         return $tempHtml;
     }
-
 
     /**
      * @return mixed
@@ -548,8 +543,5 @@ class CardealerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
 
         return $args;
     }
-
-
-
 
 }

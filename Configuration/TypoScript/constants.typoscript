@@ -22,12 +22,6 @@ plugin.tx_cardealer_pi1 {
             # cat=plugin.tx_cardealer_pi1/links/b; type=string; label=PID Details
             details = 0
         }
-        uid {
-            # cat=plugin.tx_cardealer_pi1/links/b; type=string; label=UID Anfrage Formular
-            request_form= 0
-            # cat=plugin.tx_cardealer_pi1/links/b; type=string; label=UID Weiterempfehlen Formular
-            tipafriend_form = 0
-        }
         # cat=plugin.tx_cardealer_pi1/enable/a; type=string; label=Erstzulassung: Werte für die Suche
         firstRegistrations = 2020,2019,2018,2017,2016,2015,2014,2013,2012,2011,2010,2009,2008,2007,2006,2005
         # cat=plugin.tx_cardealer_pi1/enable/b; type=string; label=Preise: Werte für die Suche
@@ -40,12 +34,7 @@ plugin.tx_cardealer_pi1 {
         replaceBy =
 
         # cat=plugin.tx_cardealer_pi1/enable/g; type=boolean; label=Ajax detail view: Details in overlay via Ajax laden
-        ajax_detail_view = 1
-
-        # cat=plugin.tx_cardealer_pi1/enable/h; type=boolean; label=Include Slick: Slick Slider Resources laden.
-        include_slick = 1
-        # cat=plugin.tx_cardealer_pi1/enable/i; type=boolean; label=Include Flexslider: Flexslider Slider Resources laden.
-        include_flexslider = 1
+        ajax_detail_view = 0
 
         # cat=plugin.tx_cardealer_pi1/color/a; type=colors; label=Icons color:
         icons_color = #0288D1

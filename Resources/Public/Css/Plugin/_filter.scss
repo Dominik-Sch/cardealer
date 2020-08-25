@@ -1,0 +1,155 @@
+.tx-cardealer-filter{
+  ::-webkit-input-placeholder {
+    color: #999;
+  }
+  ::-moz-placeholder {
+    color: #999;
+  }
+  ::placeholder {
+    color: #999;
+  }
+  &.row {
+    margin: 0;
+  }
+  .btn .glyphicon {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+  }
+  button.toggle-next {
+    text-align: left;
+  }
+  button.toggle-next:before {
+    content: "▾";
+    margin-right: 5px;
+    float: right;
+  }
+  button.btn .glyphicon {
+    left: 15px;
+    top: 15px;
+  }
+  button.moreOptions {
+    display: block;
+    width: 100%;
+  }
+  label {
+    font-weight: normal;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  h5 {
+    margin-bottom: 5px;
+  }
+  hr {
+    margin: 5px 0;
+  }
+  .chosen-container {
+    margin-bottom: 5px;
+  }
+  .wrapper {
+    position: relative;
+    margin-bottom: 5px;
+  }
+  .dropdown {
+    display: none;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    background: #fff;
+  }
+  .quicksearch .dropdown {
+    position: absolute;
+  }
+  .chkBox, .tx-cardealer-filter .radioBox {
+    margin-right: 5px;
+  }
+  .apply-selection {
+    width: 100%;
+    background: #eee;
+    padding: 5px 10px;
+    margin: 0 0 10px 0;
+    text-align: center;
+  }
+  .apply-selection .check-mark {
+    color: #5cb85c;
+  }
+  .apply-selection input {
+    display: none;
+  }
+  .scroll-div {
+    max-height: 220px;
+    overflow: auto;
+    border: 1px solid #ccc;
+    border-top: 0;
+    padding: 5px 10px;
+  }
+  .toggleContent {
+    display: none;
+    max-height: 200px;
+    overflow: auto;
+    background: #eee;
+    padding: 10px;
+  }
+  .limit {
+    display: inline-block;
+    -webkit-appearance: none;
+    border-radius: 0;
+    height: auto;
+    padding: 10px 20px;
+  }
+  .sorting.radio {
+    display: none;
+  }
+  .sorting_field {
+    margin: 5px 0 10px;
+  }
+  .sorting_field select {
+    -webkit-appearance: none;
+    border-radius: 0;
+    border-right: none;
+  }
+  .sorting_field .glyphicon {
+    color: #ccc;
+    cursor: pointer;
+  }
+  .sorting_field .glyphicon.act {
+    color: #555;
+    cursor: default;
+  }
+  .sorting_field .input-group-addon {
+    padding: 0 7px 0 0;
+    height: 40px;
+    line-height: 35px;
+    border: 1px solid #ced4da;
+    border-left: none;
+  }
+  .sorting_field .input-group-addon:nth-child(2) {
+    border-right: none;
+  }
+  .reset {
+    display: block;
+    margin-left: 15px;
+  }
+  .carcount-wrap {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+    font-size: 18px;
+    align-items: center;
+    .clearSelection {
+      .icon-x {
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+        &:before {
+          content: "+";
+          font-size: 36px;
+          display: inline-block;
+          position: relative;
+          transform: rotate(45deg);
+          font-weight: 100;
+        }
+      }
+    }
+  }
+}
