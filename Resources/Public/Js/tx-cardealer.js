@@ -1,5 +1,3 @@
-
-
 // initial stuff
 $(function() {
     setCheckboxSelectLabel();
@@ -12,13 +10,11 @@ $(function() {
         // $('.reset').trigger('click');
     }
 
-    // setting intital history state on slick plugin page
-    if ( $('.cardealer-slick').length > 0 ) {
-        history.pushState({url: location.href}, 'Default slick state', location.href);
-    }
+    $('.image-slide-container').click(function () {
+        $('.detail-image-big img').attr('src', $(this).data('image'));
+    })
 
 });
-
 
 // click backlink in popup
 $(document).on("click", ".tx-cardealer-show .backlink", function(e){
@@ -51,10 +47,6 @@ $(document).on("change", ".tx-cardealer-filter .input", function(){
     toggleCheckedAll(this);
     setCheckboxSelectLabel();
 });
-
-
-
-
 
 // toggle: for + and -
 $(document).on("click", ".toggleNext span", function(){
@@ -181,6 +173,8 @@ $(document).on("click", ".ajaxLink", function(e){
         e.preventDefault();
         getData(url, 'show');
     }
+
+
 });
 
 

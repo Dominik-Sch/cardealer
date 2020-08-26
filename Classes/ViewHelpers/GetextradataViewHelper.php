@@ -86,10 +86,10 @@ class GetextradataViewHelper extends AbstractViewHelper {
 			}	
 		}
 		if( is_array($feature) ) {
-  		asort($feature);
-  		return implode('', $feature);
+            asort($feature);
+            return implode('', $feature);
 		}		
-    return;	
+        return '';
 	}
 }
 

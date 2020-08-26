@@ -1,47 +1,39 @@
 <html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-    <div class="wrapper" id="<f:translate key='tx_cardealer_domain_model_car.{property}' />">
+<div class="wrapper" id="<f:translate key='tx_cardealer_domain_model_car.{property}' />">
 
-        <h4><f:translate key="tx_cardealer_domain_model_car.{property}" /></h4>
+    <h4><f:translate key="tx_cardealer_domain_model_car.{property}" /></h4>
 
-        <button class="form-control toggle-next ellipsis button-control">
+    <button class="form-control toggle-next ellipsis button-control">
             <span>
                 <f:translate key="tx_cardealer_domain_model_prependLabel.{property}" />
                 ({items.countAll})
             </span>
-        </button>
+    </button>
 
 
-        <div class="tx-cardealer-checkbox-values">
-            <label class="apply-selection">
-                <input type="checkbox" class="ajax-filter" />
-                <span class="check-mark">&#10004;</span> <em>Auswahl übernehmen</em>
+    <div class="tx-cardealer-checkbox-values">
+
+        <div class="scroll-div">
+            <label class="count-all">
+                <f:form.checkbox value="0"
+                                 class="input all"
+                                 name="tx_cardealer_pi1[filter][{property}][]" />
+                <span><f:translate key="tx_cardealer_domain_model_prependLabel.{property}" /> ({items.countAll})</span>
             </label>
-
-            <div class="scroll-div">
-                <label class="count-all">
-                    <f:form.checkbox value="0"
-                                     class="input all"
-                                     name="tx_cardealer_pi1[filter][{property}][]" />
-                    <span><f:translate key="tx_cardealer_domain_model_prependLabel.{property}" /> ({items.countAll})</span>
-                </label>
-                <f:for each="{items}" as="item" key="key">
-                    <f:if condition="{item.uid}">
-                        <label class="{item.disabled}">
-                            <f:form.checkbox value="{item.uid}"
-                                             class="input val"
-                                             name="tx_cardealer_pi1[filter][{property}][]"
-                                             disabled="{item.disabled}"
-                                             checked="{f:if(condition: '{item.selected}', then: 'checked')}" />
-                            <span>{item.title} ({item.counter})</span>
-                        </label>
-                    </f:if>
-                </f:for>
-            </div>
+            <f:for each="{items}" as="item" key="key">
+                <f:if condition="{item.uid}">
+                    <label class="{item.disabled} property_{property}" data-title="{item.title}">
+                        <f:form.checkbox value="{item.uid}"
+                                         class="input val"
+                                         name="tx_cardealer_pi1[filter][{property}][]"
+                                         disabled="{item.disabled}"
+                                         checked="{f:if(condition: '{item.selected}', then: 'checked')}" />
+                        <span>{item.title} ({item.counter})</span>
+                    </label>
+                </f:if>
+            </f:for>
         </div>
     </div>
+</div>
 
 </html>
-
-
-
-

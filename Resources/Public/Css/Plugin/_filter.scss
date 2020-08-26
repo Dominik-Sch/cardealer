@@ -152,4 +152,18 @@
       }
     }
   }
+  select {
+    height: 130px;
+  }
+  .toggle-filter {
+    display: none;
+    padding: 8px 15px;
+    background: lightgray;
+    cursor: pointer;
+  }
+  @media screen and (max-width: 991px) {
+    .toggle-filter {
+      display: inline-block;
+    }
+  }
 }

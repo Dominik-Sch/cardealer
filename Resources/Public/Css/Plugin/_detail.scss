@@ -1,28 +1,68 @@
 #carDetails {
+  [class^='col-md'] {
+    margin-bottom: 15px;
+  }
+  ul {
+    list-style-type: disc;
+    list-style-position: inside;
+    margin-top: 10px;
+  }
+  .back-link {
+    margin: 50px 0 30px;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .spec-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid;
+    flex-wrap: wrap;
+  }
+  dl {
+    &.spec-row {
+      border: none;
+      dt, dd {
+        padding: 15px 0;
+        width: 50%;
+        border-bottom: 1px solid;
+      }
+      dd {
+        text-align: right;
+      }
+    }
+  }
+  h1 {
+    margin-bottom: 50px;
+  }
+  h2 {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .fahrzeugdaten {
+    margin-top: 100px;
+  }
+  .technische-daten {
+    margin-top: 90px;
+  }
+  .ausstattung {
+    margin-top: 90px;
+    margin-bottom: 50px;
+    .col-md-3 {
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+  }
   .detail-image-big {
     margin-bottom: 15px;
   }
   .price {
-    font-size: 35px;
-    font-weight: bold;
-    text-align: right;
+    font-size: 28px;
+    font-weight: 600;
     margin: 20px 0 0 0;
-  }
-  h2.model_description {
-    padding: 10px;
-    position: relative;
-    .backlink {
-      display: block;
-      position: absolute;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      line-height: 50px;
-    }
-  }
-  dt {
-    float: left;
-    width: 60%;
   }
   .mwst {
     display: block;
@@ -33,6 +73,7 @@
   .carNumber {
     font-size: 12px;
     white-space: nowrap;
+    text-align: right;
   }
   .buttons .btn {
     margin-top: 10px;
@@ -42,27 +83,5 @@
   .buttons .btn .glyphicon {
     float: left;
     line-height: 30px;
-  }
-}
-@media screen and (max-width: 768px) {
-  #carDetails .price {
-    margin-top: -110px !important;
-  }
-}
-@media screen and (max-width: 991px) {
-  #carDetails .mwst {
-    white-space: nowrap;
-  }
-  #carDetails #callNow {
-    margin-top: 40px;
-  }
-  #carDetails .buttons .text-muted {
-    display: block;
-    margin: 10px 0 40px;
-  }
-}
-@media screen and (max-width: 768px) {
-  #carDetails #callNow {
-    margin-top: 40px;
   }
 }

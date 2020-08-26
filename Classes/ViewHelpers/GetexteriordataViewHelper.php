@@ -81,11 +81,7 @@ class GetexteriordataViewHelper extends AbstractViewHelper {
 			if($keyId == 'ELECTRIC_EXTERIOR_MIRRORS') {
 				$feature[] = '<li>'.$featureObj->getTitle().'</li>';
 			}
-
-			
-			
 		}
-
 
 		if($climatisation) {		
 			$feature[] = '<li>'.$climatisation.'</li>';
@@ -96,9 +92,7 @@ class GetexteriordataViewHelper extends AbstractViewHelper {
             return implode('', $feature);
         }
 
-        $emptyArray = [];
-
-        return $emptyArray;
+        return '';
 
     }
 	

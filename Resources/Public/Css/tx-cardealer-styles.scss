@@ -9,14 +9,6 @@ body.no-scroll {
   height: 100%;
   -webkit-overflow-scrolling: touch;
 }
-.tx-cardealer .ellipsis {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 100%;
-  display: inline-block;
-  margin: 0;
-}
 .tx-cardealer .loading {
   text-align: center;
 }
@@ -24,18 +16,6 @@ body.no-scroll {
   opacity: 0.5;
   position: relative;
   z-index: 99;
-}
-.tx-cardealer select {
-    height: 130px;
-}
-.toggle-filter {
-  display: none;
-  margin: 10px 0;
-}
-@media screen and (max-width: 991px) {
-  .toggle-filter {
-    display: block;
-  }
 }
 .tx-cardealer {
   ul.paginator {

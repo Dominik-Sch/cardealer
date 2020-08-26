@@ -4,7 +4,6 @@
 <f:layout name="Default"/>
 
 <f:section name="content">
-
     <div class="container" id="carDetails">
         <div class="row">
             <div class="col-md-12">
@@ -16,10 +15,6 @@
                                            class="backlink pull-right btn btn-danger"
                                            controller="Standard"
                                            pageUid="{settings.pid.list}">
-                                <span class="material-icon">
-                                    <f:render arguments="{width: '30', height: '30', color: 'white'}"
-                                              partial="Svg/Close"/>
-                                </span>
                                 <f:translate key="tx_cardealer_pi1_show.back.label"/>
                             </f:link.action>
                         </f:then>
@@ -29,10 +24,6 @@
                                            class="backlink pull-right btn btn-danger"
                                            controller="Standard"
                                            pageUid="{settings.pid.list}">
-                                <span class="material-icon">
-                                    <f:render arguments="{width: '30', height: '30', color: 'white'}"
-                                              partial="Svg/Close"/>
-                                </span>
                                 <f:translate key="tx_cardealer_pi1_show.back.label"/>
                             </f:link.action>
                         </f:else>
@@ -41,13 +32,13 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-8 image-container">
                 <f:if condition="{car.images.0}">
                     <div class="detail-image-big">
                         <f:for each="{car.images}" as="image" iteration="i">
 
                             <f:if condition="{i.isFirst}">
-                                <f:image alt="{car.modelDescription}" maxWidth="960" src="{image.uid}"
+                                <f:image alt="{car.modelDescription}" width="960" src="{image.uid}"
                                          treatIdAsReference="1"/>
                             </f:if>
 
@@ -93,7 +84,6 @@
                                         </div>
 
                                     </f:for>
-
                                 </div>
                             </div>
 
@@ -103,86 +93,33 @@
                 </f:if>
             </div>
             <div class="col-md-4">
-                <f:for as="value" each="{car.make}" iteration="_iter">
-                    <f:if condition="{_iter.isFirst}">
-                        <f:format.raw>{value.title}</f:format.raw>
-                    </f:if>
-                </f:for>
-                <f:format.raw>{car.modelDescription}</f:format.raw>
-                <h4 class="price">
-                    &euro;
-                    <f:format.number decimalSeparator="," decimals="0"
-                                     thousandsSeparator=".">{car.price}
-                    </f:format.number>
-                </h4>
+                <div class="article-short-description-wrap">
+                    <div class="article-short-description">
+                        <span class="condition-wrap">
+                            <f:for as="value" each="{car.carCondition}" iteration="_iter">
+                                <f:if condition="{_iter.isFirst}">
+                                    <f:format.raw><span>{value.title}</span></f:format.raw>
+                                </f:if>
+                            </f:for>
+                        </span>
+                        <h1 class="detail-headline">
+                            <f:for as="value" each="{car.make}" iteration="_iter">
+                                <f:if condition="{_iter.isFirst}">
+                                    <span class="make-title"><f:format.raw>{value.title}</f:format.raw></span>
+                                </f:if>
+                            </f:for>
+                            <span class="vehicle-title"><f:format.raw>{car.modelDescription}</f:format.raw></span>
+                        </h1>
+                        <h4 class="price"><f:format.number decimalSeparator="," decimals="0" thousandsSeparator=".">{car.price}</f:format.number>,- EURO</h4>
+                    </div>
+                </div>
+
             </div>
 
         </div>
         <div class="row">
-            <div class="col-md-6">
-                <f:for as="value" each="{car.category}" iteration="_iter">
-                    <f:if condition="{_iter.isFirst}">
-                        <f:format.raw><strong>{value.title}</strong><br/></f:format.raw>
-                    </f:if>
-                </f:for>
-                <f:for as="value" each="{car.carCondition}" iteration="_iter">
-                    <f:if condition="{_iter.isFirst}">
-                        <f:format.raw><strong>{value.title}</strong><br/></f:format.raw>
-                    </f:if>
-                </f:for>
-                {car.location}<br/>
-                <f:for as="value" each="{car.countyVersion}" iteration="_iter">
-                    <f:if condition="{_iter.isFirst}">
-                        <f:format.raw><strong>{value.title}</strong><br/></f:format.raw>
-                    </f:if>
-                </f:for>
-
-                Lieferdatum:
-                <f:format.date format="m/Y">{car.deliveryDate}</f:format.date>
-                <br/>
-                EZ:
-                <f:format.date format="m/Y">{car.firstRegistration}</f:format.date>
-                <br/>
-                <f:format.number decimalSeparator="," decimals="0" thousandsSeparator=".">{car.mileage}
-                </f:format.number>
-                km<br/>
-                <f:for as="value" each="{car.fuel}" iteration="_iter">
-                    <f:if condition="{_iter.isFirst}">
-                        <f:format.raw>{value.title}<br/></f:format.raw>
-                    </f:if>
-                </f:for>
-                {car.power} kW (
-                <f:format.number decimalSeparator="." decimals="0" thousandsSeparator=",">
-                    <f:cObject data="{car.power} / 735"
-                               typoscriptObjectPath="plugin.tx_cardealer_pi1.lib.math"></f:cObject>
-                </f:format.number>
-                PS)<br/>
-                <f:for as="value" each="{car.gearbox}" iteration="_iter">
-                    <f:if condition="{_iter.isFirst}">
-                        <f:format.raw>{value.title}<br/></f:format.raw>
-                    </f:if>
-                </f:for>
-                <br/>
-                <f:format.raw>
-                    <f:translate
-                            key="tx_cardealer_domain_model_car.damage.{car.damageunrepaired}.{car.accidentdamaged}.{car.roadworthy}"/>
-                </f:format.raw>
-
-                <br/>
-
-                <f:if condition="{settings.showOpelCertImage} != 1">
-                    <f:format.raw>
-                        <custom:certimage addCondition="{car.carcondition.title}"
-                                          addFirstRegistration="{car.firstRegistration}" addMileage="{car.mileage}"/>
-                    </f:format.raw>
-                </f:if>
-            </div>
-            <div class="col-md-6">
-                <f:format.raw>
-                    <custom:newcar value='{car.creationDate}'/>
-                </f:format.raw>
-
-                <i class="text-muted mwst">
+            <div class="col-md-12">
+                <div class="mwst">
                     <f:if condition="{car.vatable}">
                         <f:then>
                             MWSt. ausweisbar
@@ -191,100 +128,158 @@
                             MWSt. nicht ausweisbar
                         </f:else>
                     </f:if>
-                </i>
-
-                <div class="buttons">
-                    <a class="d-none d-sm-block d-md-none btn btn-md btn-success" href="tel:{car.phone}" id="callNow">
-                        <span class="material-icon">
-                            <f:render arguments="{width: '24', height: '24', color: 'white'}"
-                                      partial="Svg/Phone"/>
+                </div>
+                <div class="carNumber">Mobile.de Inserat: <span class="carNumberOnly">{car.uid}</span></div>
+                <f:if condition="{car.seller_inventory_key}">
+                    <div class="carNumberInternal">Interne Nummer: <span class="carNumberInternalOnly">{car.seller_inventory_key}</span></div>
+                </f:if>
+            </div>
+        </div>
+        <div class="row fahrzeugdaten">
+            <div class="col-md-12">
+                <h2>Fahrzeugdaten</h2>
+            </div>
+            <div class="col-md-6">
+                <div class="spec-row">
+                    <div class="spec-left-col">
+                        <span>Lieferdatum</span>
+                    </div>
+                    <div class="spec-right-col">
+                        <span><f:format.date format="m/Y">{car.deliveryDate}</f:format.date></span>
+                    </div>
+                </div>
+                <div class="spec-row">
+                    <div class="spec-left-col">
+                        <span>Erstzulassung</span>
+                    </div>
+                    <div class="spec-right-col">
+                        <span><f:format.date format="m/Y">{car.firstRegistration}</f:format.date></span>
+                    </div>
+                </div>
+                <div class="spec-row">
+                    <div class="spec-left-col">
+                        <span>Kilometerstand</span>
+                    </div>
+                    <div class="spec-right-col">
+                        <span><f:format.number decimalSeparator="," decimals="0" thousandsSeparator=".">{car.mileage}</f:format.number> km</span>
+                    </div>
+                </div>
+                <div class="spec-row">
+                    <div class="spec-left-col">
+                        <span>Leistung</span>
+                    </div>
+                    <div class="spec-right-col">
+                        <span>
+                            {car.power} kW (
+                            <f:format.number decimalSeparator="." decimals="0" thousandsSeparator=",">
+                                <f:cObject data="{car.power} * 1.36"
+                                           typoscriptObjectPath="plugin.tx_cardealer_pi1.lib.math" />
+                            </f:format.number>
+                            PS)
                         </span>
-                        Anrufen
-                    </a>
-                    <a class="showForm btn btn-md btn-primary" href="#" id="tx-cardealer-requestform" target="_blank">
-                        <span class="material-icon">
-                            <f:render arguments="{width: '24', height: '24', color: 'white'}"
-                                      partial="Svg/Mail"/>
+                    </div>
+                </div>
+                <div class="spec-row">
+                    <div class="spec-left-col">
+                        <span>Kraftstoff</span>
+                    </div>
+                    <div class="spec-right-col">
+                        <span>
+                            <f:for as="value" each="{car.fuel}" iteration="_iter">
+                                <f:if condition="{_iter.isFirst}">
+                                    <f:format.raw>{value.title}<br/></f:format.raw>
+                                </f:if>
+                            </f:for>
                         </span>
-                        Fahrzeuganfrage
-                    </a>
-                    <a class="showForm btn btn-md btn-info" href="#" id="tx-cardealer-tipafriend" target="_blank">
-                        <span class="material-icon">
-                            <f:render arguments="{width: '24', height: '24', color: 'white'}"
-                                      partial="Svg/Comment"/>
+                    </div>
+                </div>
+                <div class="spec-row">
+                    <div class="spec-left-col">
+                        <span>Schaltung</span>
+                    </div>
+                    <div class="spec-right-col">
+                        <span>
+                            <f:for as="value" each="{car.gearbox}" iteration="_iter">
+                                <f:if condition="{_iter.isFirst}">
+                                    <f:format.raw>{value.title}<br/></f:format.raw>
+                                </f:if>
+                            </f:for>
                         </span>
-                        Weitersagen
-                    </a>
-                    <f:link.action action="show" arguments="{car : '{car.uid}', make: '{car.make.uid}'}"
-                                   class="d-block d-sm-none d-md-block printLink half-width btn btn-md btn-default"
-                                   format="print" pageType="98" pageUid="{settings.pid.details}" target="_blank">
-                        <span class="material-icon">
-                            <f:render arguments="{width: '24', height: '24', color: '#2b2b2b'}"
-                                      partial="Svg/Print"/>
+                    </div>
+                </div>
+                <div class="spec-row">
+                    <div class="spec-left-col">
+                        <span>Zustand</span>
+                    </div>
+                    <div class="spec-right-col">
+                        <span>
+                            <f:format.raw>
+                                <f:translate
+                                        key="tx_cardealer_domain_model_car.damage.{car.damageunrepaired}.{car.accidentdamaged}.{car.roadworthy}"/>
+                            </f:format.raw>
                         </span>
-                        Drucken
-                    </f:link.action>
-
-                    <i class="text-muted carNumber"><em>Mobile.de Inserat: {car.uid}</em></i>
-                    <f:if condition="{car.seller_inventory_key}">
-                        <br/><i class="text-muted carNumber"><em>Interne Nummer: {car.seller_inventory_key}</em></i>
-                    </f:if>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong>Fahrzeugbeschreibung</strong>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="description col-md-12">
+                        <f:format.raw>
+                            <custom:description value="{car.description}"/>
+                        </f:format.raw>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="row">
+        <div class="row technische-daten">
             <div class="col-md-12">
-                <h3>Weitere technische Daten</h3>
+                <h2>Weitere technische Daten</h2>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <dl>
+            <div class="col-md-6">
+                <dl class="spec-row">
                     <f:format.raw>
                         <custom:getspecifics addUid="{car.uid}"/>
                     </f:format.raw>
                 </dl>
-            </div>
-            <div class="col-md-4">
-                <dl>
+                <dl class="spec-row">
                     <f:format.raw>
                         <custom:getconsumptions addUid="{car.uid}"/>
                     </f:format.raw>
                 </dl>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <f:if condition="{car.efficiencyClass}">
                     <f:then>
                         <b>CO2-Effizienz:</b><br/>
                         <f:image class="effClassImg" maxWidth="300" maxHeight="200"
                                  src="typo3conf/ext/cardealer/Resources/Public/Img/{car.efficiencyClass}.png"
                                  alt="{car.efficiencyClass}" title="{car.efficiencyClass}" />
+                        <p>Weitere Informationen zum offiziellen Kraftstoffverbrauch und den offiziellen
+                            spezifischen CO2-Emissionen neuer Personenkraftwagen können dem <a
+                                    href="http://www.dat.de/uploads/media/LeitfadenCO2.pdf" target="_blank">"Leitfaden über
+                                den Kraftstoffverbrauch, die CO2-Emissionen und den Stromverbrauch neuer
+                                Personenkraftwagen"</a> entnommen werden, der an allen Verkaufsstellen und bei der Deutschen
+                            Automobil Treuhand GmbH (DAT) unentgeltlich erhältlich ist. Die angegebenen Werte wurden nach
+                            dem vorgeschriebenen Messverfahren (§ 2 Nrn. 5, 6, 6a Pkw-EnVKV in der jeweils geltenden
+                            Fassung) ermittelt. Die Angaben beziehen sich nicht auf ein einzelnes Fahrzeug und sind nicht
+                            Bestandteil des Angebots, sondern dienen allein Vergleichszwecken zwischen den verschiedenen
+                            Fahrzeugtypen.</p>
                     </f:then>
                 </f:if>
             </div>
 
-            <div class="col-md-12 dat-hinweis">
-                <p class="text-muted">Weitere Informationen zum offiziellen Kraftstoffverbrauch und den offiziellen
-                    spezifischen CO2-Emissionen neuer Personenkraftwagen können dem <a
-                            href="http://www.dat.de/uploads/media/LeitfadenCO2.pdf" target="_blank">"Leitfaden über
-                        den Kraftstoffverbrauch, die CO2-Emissionen und den Stromverbrauch neuer
-                        Personenkraftwagen"</a> entnommen werden, der an allen Verkaufsstellen und bei der Deutschen
-                    Automobil Treuhand GmbH (DAT) unentgeltlich erhältlich ist. Die angegebenen Werte wurden nach
-                    dem vorgeschriebenen Messverfahren (§ 2 Nrn. 5, 6, 6a Pkw-EnVKV in der jeweils geltenden
-                    Fassung) ermittelt. Die Angaben beziehen sich nicht auf ein einzelnes Fahrzeug und sind nicht
-                    Bestandteil des Angebots, sondern dienen allein Vergleichszwecken zwischen den verschiedenen
-                    Fahrzeugtypen.</p>
-            </div>
         </div>
 
-        <div class="row">
+        <div class="row ausstattung">
             <div class="col-md-12">
-                <h3>Ausstattung</h3>
+                <h2>Ausstattung</h2>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-3">
+            <div class="col-md-3">
                 <strong>Innenausstattung</strong>
                 <ul>
                     <f:format.raw>
@@ -292,7 +287,7 @@
                     </f:format.raw>
                 </ul>
             </div>
-            <div class="col-sm-3">
+            <div class="col-md-3">
                 <strong>Außenausstattung</strong>
                 <ul>
                     <f:format.raw>
@@ -300,7 +295,7 @@
                     </f:format.raw>
                 </ul>
             </div>
-            <div class="col-sm-3">
+            <div class="col-md-3">
                 <strong>Extras</strong>
                 <ul>
                     <f:format.raw>
@@ -308,7 +303,7 @@
                     </f:format.raw>
                 </ul>
             </div>
-            <div class="col-sm-3">
+            <div class="col-md-3">
                 <strong>Sicherheit und Umwelt</strong>
                 <ul>
                     <f:format.raw>
@@ -317,20 +312,6 @@
                 </ul>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <h3>Fahrzeugbeschreibung</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="description col-md-12">
-                <f:format.raw>
-                    <custom:description value="{car.description}"/>
-                </f:format.raw>
-            </div>
-        </div>
-
 
     </div>
 

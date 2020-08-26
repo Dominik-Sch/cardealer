@@ -132,9 +132,7 @@ class GetinteriordataViewHelper extends AbstractViewHelper {
             return implode('', $feature);
         }
 
-		$emptyArray = [];
-
-        return $emptyArray;
+        return '';
 		
 	}
 	
