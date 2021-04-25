@@ -141,7 +141,6 @@ class WriteModelsAndMakes extends \TYPO3\CMS\Scheduler\Task\AbstractTask  implem
                 if( is_array($xmlArray['SEARCH:SEARCH-RESULT']['SEARCH:ADS']['AD:AD']) ) {
                     foreach ($xmlArray['SEARCH:SEARCH-RESULT']['SEARCH:ADS']['AD:AD'] as $add) {
                         $y = $x++;
-
                         // only one result
                         if ($this->count($xmlArray['SEARCH:SEARCH-RESULT']['SEARCH:ADS']['AD:AD']) == 9) {
                             $nextKey = array(0 => 0);
@@ -163,7 +162,7 @@ class WriteModelsAndMakes extends \TYPO3\CMS\Scheduler\Task\AbstractTask  implem
                             // MODELS
                             if (isset($add['AD:VEHICLE'][$nextKey[0]]['AD:MODEL'])) {
                                 $nextKeyModel = array_keys($add['AD:VEHICLE'][$nextKey[0]]['AD:MODEL']);
-                                if (is_int($nextKey)) {
+                                if (is_array($nextKey)) {
                                     $modelsAndMakesRawArr[$make][] = $add['AD:VEHICLE'][$nextKey[0]]['AD:MODEL'][$nextKeyModel[0]]['KEY'];
                                 }
                             } else {
@@ -173,6 +172,7 @@ class WriteModelsAndMakes extends \TYPO3\CMS\Scheduler\Task\AbstractTask  implem
                                 $modelsAndMakesRawArr[$make][] = $modelDescriptionArr[0];
                             }
                         }
+
 
                         $makesArr[] = $make;
                     }

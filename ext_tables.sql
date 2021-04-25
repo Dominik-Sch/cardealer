@@ -920,7 +920,7 @@ CREATE TABLE tx_cardealer_domain_model_parkingassistant (
 #
 CREATE TABLE cf_cardealer_cache (
   id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-  identifier VARCHAR(250) DEFAULT '' NOT NULL,
+  identifier VARCHAR(100) DEFAULT '' NOT NULL,
   crdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   content mediumblob,
   expires INT(11) UNSIGNED DEFAULT '0' NOT NULL,
@@ -933,8 +933,8 @@ CREATE TABLE cf_cardealer_cache (
 #
 CREATE TABLE cf_cardealer_cache_tags (
   id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-  identifier VARCHAR(250) DEFAULT '' NOT NULL,
-  tag VARCHAR(250) DEFAULT '' NOT NULL,
+  identifier VARCHAR(100) DEFAULT '' NOT NULL,
+  tag VARCHAR(100) DEFAULT '' NOT NULL,
   PRIMARY KEY (id),
   KEY cache_id (identifier),
   KEY cache_tag (tag)

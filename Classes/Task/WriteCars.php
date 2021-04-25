@@ -161,8 +161,7 @@ class WriteCars extends \TYPO3\CMS\Scheduler\Task\AbstractTask  implements \TYPO
         foreach ($addKeys as $key => $value) {
             $host = 'https://services.mobile.de/search-api/ad/' . $value['key'] . '';
             $addXmlArray = TaskLibrary::getXmlData( $value['username'], $value['password'], '', '', $host );
-
-
+            
             foreach ($addXmlArray as $k => $add) {
                 $carsImportArr = $this->createCarsImportArray($key, $add, $replace, $replaceBy, $value);
             }

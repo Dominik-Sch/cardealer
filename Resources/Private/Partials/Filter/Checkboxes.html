@@ -28,7 +28,7 @@
                                          name="tx_cardealer_pi1[filter][{property}][]"
                                          disabled="{item.disabled}"
                                          checked="{f:if(condition: '{item.selected}', then: 'checked')}" />
-                        <span>{item.title} ({item.counter})</span>
+                        <span class="property_label">{item.title}</span><span class="property_counter">({item.counter})</span>
                     </label>
                 </f:if>
             </f:for>
